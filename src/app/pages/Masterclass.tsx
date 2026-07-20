@@ -134,7 +134,7 @@ function VideoTestimonialCard({ src, index }: { src: string; index: number }) {
   };
 
   return (
-    <div className="relative aspect-[9/16] rounded-2xl overflow-hidden bg-ink border border-violet-line shadow-sm">
+    <div className="relative aspect-[9/16] max-h-[70vh] md:max-h-none rounded-2xl overflow-hidden bg-ink border border-violet-line shadow-sm mx-auto w-full">
       <video
         ref={videoRef}
         src={src}
@@ -198,7 +198,7 @@ export default function Masterclass() {
       <Header />
 
       {/* HERO , bottom-text editorial overlay */}
-      <section className="relative w-full min-h-[100vh] overflow-hidden bg-[#E8E4DC]">
+      <section className="relative w-full min-h-[100svh] overflow-hidden bg-[#E8E4DC]">
         {/* Anchored below fixed header + object-top so her head isn't cropped */}
         <img
           src={portraitImg}
@@ -214,15 +214,15 @@ export default function Masterclass() {
           }}
         />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 md:px-10 min-h-[100vh] flex flex-col pt-32 sm:pt-36 md:pt-40 pb-14 md:pb-20">
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 md:px-10 min-h-[100svh] flex flex-col pt-28 sm:pt-36 md:pt-40 pb-10 sm:pb-14 md:pb-20">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="font-mono text-[11px] tracking-[0.3em] uppercase flex items-center gap-3"
+            className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] sm:tracking-[0.3em] uppercase flex items-center gap-3"
             style={{ color: '#0F0B2E' }}
           >
-            <span className="w-10 h-px" style={{ background: 'rgba(15,11,46,0.5)' }} />
+            <span className="w-8 sm:w-10 h-px" style={{ background: 'rgba(15,11,46,0.5)' }} />
             The Masterclass
           </motion.div>
 
@@ -231,7 +231,7 @@ export default function Masterclass() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tighter leading-[1]"
+              className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tighter leading-[1.05] sm:leading-[1]"
               style={{ color: '#0F0B2E' }}
             >
               Built around<br />
@@ -242,7 +242,7 @@ export default function Masterclass() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.25 }}
-              className="mt-10 text-base md:text-xl leading-relaxed max-w-2xl"
+              className="mt-6 sm:mt-10 text-sm sm:text-base md:text-xl leading-relaxed max-w-2xl"
               style={{ color: '#4A4566' }}
             >
               Four pillars. One integrated system. Every move aligned to your MMH plan,
@@ -252,7 +252,7 @@ export default function Masterclass() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-12 flex flex-wrap items-center gap-4"
+              className="mt-8 sm:mt-12 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4"
             >
               <Button href="https://study.successwithsuman.com/l/f61fd9d4a1" size="lg">
                 Book Your Seat <ArrowRight className="w-4 h-4" />
@@ -279,8 +279,8 @@ export default function Masterclass() {
             </h2>
           </motion.div>
 
-          <motion.div className="flex justify-center mb-10" {...fadeUp}>
-            <div className="inline-flex p-1.5 rounded-full bg-white border border-violet-line">
+          <motion.div className="flex justify-center mb-8 sm:mb-10" {...fadeUp}>
+            <div className="inline-flex w-full max-w-md sm:w-auto sm:max-w-none p-1 sm:p-1.5 rounded-full bg-white border border-violet-line">
               {tabs.map(t => {
                 const Icon = t.icon;
                 const active = activeTab === t.id;
@@ -288,7 +288,7 @@ export default function Masterclass() {
                   <button
                     key={t.id}
                     onClick={() => setActiveTab(t.id)}
-                    className="relative px-5 md:px-7 py-2.5 rounded-full text-sm transition-colors"
+                    className="relative flex-1 sm:flex-none px-3 sm:px-5 md:px-7 py-2.5 rounded-full text-xs sm:text-sm transition-colors"
                   >
                     {active && (
                       <motion.div
@@ -297,9 +297,9 @@ export default function Masterclass() {
                         transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                       />
                     )}
-                    <span className={`relative inline-flex items-center gap-2 ${active ? 'text-white' : 'text-ink-soft hover:text-ink'}`}>
-                      <Icon className="w-4 h-4" />
-                      {t.label}
+                    <span className={`relative inline-flex items-center justify-center gap-1.5 sm:gap-2 ${active ? 'text-white' : 'text-ink-soft hover:text-ink'}`}>
+                      <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
+                      <span className="truncate">{t.label}</span>
                     </span>
                   </button>
                 );
@@ -327,7 +327,7 @@ export default function Masterclass() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -16 }}
                 transition={{ duration: 0.35 }}
-                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5"
+                className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 max-w-sm md:max-w-none mx-auto"
               >
                 {videoTestimonials.map((src, i) => (
                   <motion.div
@@ -553,7 +553,7 @@ export default function Masterclass() {
               protect, multiply and pass on what they earn.
             </p>
           </motion.div>
-          <div className="md:col-span-7 grid sm:grid-cols-2 gap-5">
+          <div className="md:col-span-7 grid grid-cols-2 gap-3 sm:gap-5">
             {[
               { to: 2095, suffix: '+', separator: true, l: 'Professionals guided' },
               { to: 7000, suffix: '+', separator: true, l: 'Hours of training' },
@@ -567,16 +567,16 @@ export default function Masterclass() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
                 whileHover={{ y: -4 }}
-                className="p-8 rounded-2xl bg-violet text-white"
+                className="p-5 sm:p-6 md:p-8 rounded-2xl bg-violet text-white"
               >
                 <CountUp
                   to={s.to}
                   decimals={s.decimals}
                   suffix={s.suffix}
                   separator={s.separator}
-                  className="text-5xl tracking-tighter text-white block"
+                  className="text-3xl sm:text-4xl md:text-5xl tracking-tighter text-white block"
                 />
-                <div className="mt-2 text-white/80 text-sm">{s.l}</div>
+                <div className="mt-2 text-white/80 text-xs sm:text-sm leading-snug">{s.l}</div>
               </motion.div>
             ))}
           </div>
@@ -836,14 +836,14 @@ function WhatsAppTestimonialsCarousel() {
         <button
           onClick={prev}
           aria-label="Previous testimonial"
-          className="absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white/95 hover:bg-white text-ink grid place-items-center shadow-lg border border-violet-line transition-colors"
+          className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/95 hover:bg-white text-ink grid place-items-center shadow-lg border border-violet-line transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
         </button>
         <button
           onClick={next}
           aria-label="Next testimonial"
-          className="absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white/95 hover:bg-white text-ink grid place-items-center shadow-lg border border-violet-line transition-colors"
+          className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/95 hover:bg-white text-ink grid place-items-center shadow-lg border border-violet-line transition-colors"
         >
           <ArrowRight className="w-4 h-4" />
         </button>

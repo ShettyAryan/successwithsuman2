@@ -40,45 +40,40 @@ export default function Contact() {
       <Header />
 
       {/* HERO , bottom-text editorial overlay */}
-      <section className="relative w-full min-h-[100vh] overflow-hidden bg-[#EDEBE9]">
-        {/* Anchored below fixed header + object-top so her head isn't cropped */}
+      <section className="relative w-full min-h-[100svh] overflow-hidden bg-[#EDEBE9]">
+        {/* Mobile: header clearance + subject crop. Desktop: previous framing preserved */}
         <img
           src={heroPortrait}
           alt="Suman Manjrekar"
-          className="absolute left-0 right-0 w-full object-cover object-[78%_30%] sm:object-[72%_28%]"
-          style={{
-            top: '0',
-            height: '118%',
-            transform: 'translateY(-10%)',
-          }}
+          className="absolute left-0 right-0 bottom-0 top-16 w-full object-cover object-[82%_16%] sm:top-0 sm:bottom-auto sm:h-[118%] sm:object-[72%_28%] sm:-translate-y-[10%]"
         />
         <div
           aria-hidden
-          className="absolute inset-0"
+          className="absolute inset-0 top-16 sm:top-0"
           style={{
             background:
               'linear-gradient(180deg, rgba(15,11,46,0.12) 0%, transparent 25%, transparent 50%, rgba(15,11,46,0.35) 88%, rgba(15,11,46,0.45) 100%)',
           }}
         />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 md:px-10 min-h-[100vh] flex flex-col pt-32 sm:pt-36 md:pt-40 pb-14 md:pb-20">
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 md:px-10 min-h-[100svh] flex flex-col pt-28 sm:pt-36 md:pt-40 pb-10 sm:pb-14 md:pb-20">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="font-mono text-[11px] tracking-[0.3em] uppercase flex items-center gap-3"
+            className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] sm:tracking-[0.3em] uppercase flex items-center gap-3"
             style={{ color: '#0F0B2E' }}
           >
-            <span className="w-10 h-px" style={{ background: 'rgba(15,11,46,0.5)' }} />
+            <span className="w-8 sm:w-10 h-px" style={{ background: 'rgba(15,11,46,0.5)' }} />
             Get In Touch
           </motion.div>
 
-          <div className="mt-auto max-w-5xl">
+          <div className="mt-55 md:mt-auto max-w-5xl">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tighter leading-[1]"
+              className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tighter leading-[1.05] sm:leading-[1]"
               style={{ color: '#0F0B2E' }}
             >
               Let's architect<br />
@@ -89,7 +84,7 @@ export default function Contact() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.25 }}
-              className="mt-10 text-base md:text-xl leading-relaxed max-w-2xl"
+              className="mt-6 sm:mt-10 text-sm sm:text-base md:text-xl leading-relaxed max-w-2xl"
               style={{ color: '#4A4566' }}
             >
               Tell me a little about where you are and where you want to go. You will hear back
@@ -99,7 +94,7 @@ export default function Contact() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-12 flex flex-wrap items-center gap-4"
+              className="mt-8 sm:mt-12 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4"
             >
               <Button href="https://study.successwithsuman.com/l/f61fd9d4a1" size="lg">
                 Book a Strategy Call <ArrowRight className="w-4 h-4" />
@@ -142,7 +137,7 @@ export default function Contact() {
                       required
                       value={form.name}
                       onChange={(e) => update('name', e.target.value)}
-                      className="w-full px-4 py-3.5 rounded-xl bg-white border border-violet-line focus:border-violet focus:outline-none focus:ring-4 focus:ring-violet/10 transition-all"
+                      className="w-full px-4 py-3.5 text-base rounded-xl bg-white border border-violet-line focus:border-violet focus:outline-none focus:ring-4 focus:ring-violet/10 transition-all"
                       placeholder="Your name"
                     />
                   </Field>
@@ -152,7 +147,7 @@ export default function Contact() {
                       type="email"
                       value={form.email}
                       onChange={(e) => update('email', e.target.value)}
-                      className="w-full px-4 py-3.5 rounded-xl bg-white border border-violet-line focus:border-violet focus:outline-none focus:ring-4 focus:ring-violet/10 transition-all"
+                      className="w-full px-4 py-3.5 text-base rounded-xl bg-white border border-violet-line focus:border-violet focus:outline-none focus:ring-4 focus:ring-violet/10 transition-all"
                       placeholder="you@example.com"
                     />
                   </Field>
@@ -164,7 +159,7 @@ export default function Contact() {
                       type="tel"
                       value={form.phone}
                       onChange={(e) => update('phone', e.target.value)}
-                      className="w-full px-4 py-3.5 rounded-xl bg-white border border-violet-line focus:border-violet focus:outline-none focus:ring-4 focus:ring-violet/10 transition-all"
+                      className="w-full px-4 py-3.5 text-base rounded-xl bg-white border border-violet-line focus:border-violet focus:outline-none focus:ring-4 focus:ring-violet/10 transition-all"
                       placeholder="+91 98XXX XXXXX"
                     />
                   </Field>
@@ -172,7 +167,7 @@ export default function Contact() {
                     <select
                       value={form.interest}
                       onChange={(e) => update('interest', e.target.value)}
-                      className="w-full px-4 py-3.5 rounded-xl bg-white border border-violet-line focus:border-violet focus:outline-none focus:ring-4 focus:ring-violet/10 transition-all appearance-none"
+                      className="w-full px-4 py-3.5 text-base rounded-xl bg-white border border-violet-line focus:border-violet focus:outline-none focus:ring-4 focus:ring-violet/10 transition-all appearance-none"
                     >
                       <option>Strategy call (1-2-1)</option>
                       <option>Infinite Wealth Hub</option>
@@ -189,7 +184,7 @@ export default function Contact() {
                     rows={5}
                     value={form.message}
                     onChange={(e) => update('message', e.target.value)}
-                    className="w-full px-4 py-3.5 rounded-xl bg-white border border-violet-line focus:border-violet focus:outline-none focus:ring-4 focus:ring-violet/10 transition-all resize-none"
+                    className="w-full px-4 py-3.5 text-base rounded-xl bg-white border border-violet-line focus:border-violet focus:outline-none focus:ring-4 focus:ring-violet/10 transition-all resize-none"
                     placeholder="A few lines about your goals, current situation, or questions..."
                   />
                 </Field>

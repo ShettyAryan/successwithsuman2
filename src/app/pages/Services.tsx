@@ -80,7 +80,7 @@ export default function Services() {
       <Header />
 
       {/* HERO , bottom-text editorial overlay */}
-      <section className="relative w-full min-h-[100vh] overflow-hidden bg-[#E8E6E4]">
+      <section className="relative w-full min-h-[100svh] overflow-hidden bg-[#E8E6E4]">
         {/* Anchored below fixed header + object-top so her head isn't cropped */}
         <img
           src={heroPortrait}
@@ -96,24 +96,24 @@ export default function Services() {
           }}
         />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 md:px-10 min-h-[100vh] flex flex-col pt-32 sm:pt-36 md:pt-40 pb-14 md:pb-20">
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 md:px-10 min-h-[100svh] flex flex-col pt-28 sm:pt-36 md:pt-40 pb-10 sm:pb-14 md:pb-20">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="font-mono text-[11px] tracking-[0.3em] uppercase flex items-center gap-3"
+            className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] sm:tracking-[0.3em] uppercase flex items-center gap-3"
             style={{ color: '#0F0B2E' }}
           >
-            <span className="w-10 h-px" style={{ background: 'rgba(15,11,46,0.5)' }} />
+            <span className="w-8 sm:w-10 h-px" style={{ background: 'rgba(15,11,46,0.5)' }} />
             What We Do
           </motion.div>
 
-          <div className="mt-auto max-w-5xl">
+          <div className="mt-55 md:mt-auto max-w-5xl">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tighter leading-[1]"
+              className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tighter leading-[1.05] sm:leading-[1]"
               style={{ color: '#0F0B2E' }}
             >
               Services that<br />
@@ -124,7 +124,7 @@ export default function Services() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.25 }}
-              className="mt-10 text-base md:text-xl leading-relaxed max-w-2xl"
+              className="mt-6 sm:mt-10 text-sm sm:text-base md:text-xl leading-relaxed max-w-2xl"
               style={{ color: '#4A4566' }}
             >
               A complete personal CFO offering, from protection to wealth creation, structured around your
@@ -134,7 +134,7 @@ export default function Services() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-12 flex flex-wrap items-center gap-4"
+              className="mt-8 sm:mt-12 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4"
             >
               <Button href="https://study.successwithsuman.com/l/f61fd9d4a1" size="lg">
                 Book a Strategy Call <ArrowRight className="w-4 h-4" />
@@ -153,12 +153,12 @@ export default function Services() {
             <div className="font-mono text-[11px] tracking-[0.3em] text-violet uppercase mb-5">
               What We Do
             </div>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl tracking-tighter leading-[1] text-ink">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl tracking-tighter leading-[1.05] sm:leading-[1] text-ink">
               Nine pillars of a <span className="text-violet">complete plan</span>.
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-violet-line border border-violet-line rounded-3xl overflow-hidden">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-violet-line border border-violet-line rounded-2xl sm:rounded-3xl overflow-hidden">
             {whatWeDo.map(({ icon: Icon, label }, i) => (
               <motion.div
                 key={label}
@@ -167,13 +167,13 @@ export default function Services() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: i * 0.04 }}
                 whileHover={{ y: -4 }}
-                className="bg-white p-7 md:p-10 group"
+                className="bg-white p-5 sm:p-7 md:p-10 group"
               >
-                <div className="w-12 h-12 rounded-2xl bg-violet-soft text-violet grid place-items-center mb-5 group-hover:bg-violet group-hover:text-white transition-colors">
-                  <Icon className="w-5 h-5" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-violet-soft text-violet grid place-items-center mb-4 sm:mb-5 group-hover:bg-violet group-hover:text-white transition-colors">
+                  <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
-                <div className="text-xl md:text-2xl tracking-tight text-ink">{label}</div>
-                <div className="font-mono text-[10px] tracking-[0.25em] text-ink-mute uppercase mt-2">
+                <div className="text-base sm:text-xl md:text-2xl tracking-tight text-ink leading-snug">{label}</div>
+                <div className="font-mono text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.25em] text-ink-mute uppercase mt-2">
                   Pillar · {String(i + 1).padStart(2, '0')}
                 </div>
               </motion.div>
@@ -232,7 +232,7 @@ export default function Services() {
             </p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-violet-line border border-violet-line rounded-3xl overflow-hidden">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-violet-line border border-violet-line rounded-2xl sm:rounded-3xl overflow-hidden">
             {offerings.map(({ icon: Icon, label, sub }, i) => (
               <motion.div
                 key={label}
@@ -240,13 +240,13 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.04 }}
-                className="bg-white p-7"
+                className="bg-white p-5 sm:p-7"
               >
                 <div className="w-10 h-10 rounded-xl bg-violet-tint text-violet grid place-items-center mb-4">
                   <Icon className="w-4 h-4" />
                 </div>
-                <div className="text-lg tracking-tight text-ink">{label}</div>
-                <div className="font-mono text-[10px] tracking-[0.25em] text-ink-mute uppercase mt-2">
+                <div className="text-base sm:text-lg tracking-tight text-ink">{label}</div>
+                <div className="font-mono text-[9px] sm:text-[10px] tracking-wider sm:tracking-[0.2em] text-ink-mute uppercase mt-2 leading-snug">
                   {sub}
                 </div>
               </motion.div>

@@ -65,40 +65,40 @@ export default function About() {
       <Header />
 
       {/* HERO , bottom-text editorial overlay */}
-      <section className="relative w-full min-h-[100vh] overflow-hidden bg-[#C5C2BE]">
-        {/* Anchored below fixed header + object-top so her head isn't cropped */}
+      <section className="relative w-full min-h-[100svh] overflow-hidden bg-[#C5C2BE]">
+        {/* Mobile: header clearance + subject crop. Desktop: previous scaled framing preserved */}
         <img
           src={heroPortrait}
           alt="Suman Manjrekar"
-          className="absolute inset-0 w-full h-full object-cover object-[70%_38%] sm:object-[65%_35%] scale-[1.25] origin-[70%_40%] sm:origin-[65%_38%]"
+          className="absolute left-0 right-0 bottom-0 top-16 w-full object-cover object-[80%_18%] sm:inset-0 sm:top-0 sm:object-[65%_35%] sm:scale-[1.25] sm:origin-[65%_38%]"
         />
         <div
           aria-hidden
-          className="absolute inset-0"
+          className="absolute inset-0 top-16 sm:top-0"
           style={{
             background:
               'linear-gradient(180deg, rgba(15,11,46,0.12) 0%, transparent 25%, transparent 50%, rgba(15,11,46,0.35) 88%, rgba(15,11,46,0.45) 100%)',
           }}
         />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 md:px-10 min-h-[100vh] flex flex-col pt-32 sm:pt-36 md:pt-40 pb-14 md:pb-20">
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 md:px-10 min-h-[100svh] flex flex-col pt-28 sm:pt-36 md:pt-40 pb-10 sm:pb-14 md:pb-20">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="font-mono text-[11px] tracking-[0.3em] uppercase flex items-center gap-3"
+            className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] sm:tracking-[0.3em] uppercase flex items-center gap-3"
             style={{ color: '#FFFFFF' }}
           >
-            <span className="w-10 h-px" style={{ background: 'rgba(255,255,255,0.7)' }} />
+            <span className="w-8 sm:w-10 h-px" style={{ background: 'rgba(255,255,255,0.7)' }} />
             About Suman
           </motion.div>
 
-          <div className="mt-auto max-w-5xl">
+          <div className="mt-55 md:mt-auto max-w-5xl">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tighter leading-[1]"
+              className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tighter leading-[1.05] sm:leading-[1]"
               style={{ color: '#0F0B2E' }}
             >
               Personal CFO.<br />
@@ -109,7 +109,7 @@ export default function About() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.25 }}
-              className="mt-10 text-base md:text-xl leading-relaxed max-w-2xl"
+              className="mt-6 sm:mt-10 text-sm sm:text-base md:text-xl leading-relaxed max-w-2xl"
               style={{ color: '#FFFFFF' }}
             >
               Nineteen years inside the financial industry taught me one thing: the math is not
@@ -120,7 +120,7 @@ export default function About() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-12 flex flex-wrap items-center gap-4"
+              className="mt-8 sm:mt-12 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4"
             >
               <Button href="/contact" size="lg">
                 Work With Me <ArrowRight className="w-4 h-4" />
@@ -186,7 +186,7 @@ export default function About() {
               The receipts <span className="text-violet">behind the work</span>.
             </h2>
           </motion.div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
             {credentials.map(({ icon: Icon, label, sub }, i) => (
               <motion.div
                 key={label}
@@ -195,13 +195,13 @@ export default function About() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.06 }}
                 whileHover={{ y: -4 }}
-                className="flex items-center gap-4 p-5 rounded-2xl bg-violet-tint border border-violet-line"
+                className="flex items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl bg-violet-tint border border-violet-line"
               >
-                <div className="w-11 h-11 rounded-xl bg-white text-violet grid place-items-center shrink-0">
-                  <Icon className="w-5 h-5" />
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white text-violet grid place-items-center shrink-0">
+                  <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
-                <div>
-                  <div className="text-ink tracking-tight">{label}</div>
+                <div className="min-w-0">
+                  <div className="text-ink tracking-tight text-sm sm:text-base truncate">{label}</div>
                   <div className="text-xs text-ink-soft">{sub}</div>
                 </div>
               </motion.div>
@@ -276,7 +276,7 @@ export default function About() {
 
       {/* PROOF */}
       <section className="px-5 sm:px-6 md:px-10 pb-16 md:pb-24">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-5">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
           {[
             { to: 2095, suffix: '+', separator: true, l: 'Professionals guided' },
             { to: 19, suffix: '+', l: 'Years of experience' },
@@ -290,16 +290,16 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
               whileHover={{ y: -4 }}
-              className="p-6 sm:p-8 rounded-2xl bg-violet-tint border border-violet-line"
+              className="p-4 sm:p-6 md:p-8 rounded-2xl bg-violet-tint border border-violet-line"
             >
               <CountUp
                 to={s.to}
                 decimals={s.decimals}
                 suffix={s.suffix}
                 separator={s.separator}
-                className="text-3xl sm:text-4xl md:text-5xl tracking-tighter text-violet-deep block"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tighter text-violet-deep block"
               />
-              <div className="mt-2 text-ink-soft text-sm">{s.l}</div>
+              <div className="mt-2 text-ink-soft text-xs sm:text-sm leading-snug">{s.l}</div>
             </motion.div>
           ))}
         </div>
@@ -386,12 +386,12 @@ function GalleryMarquee() {
 
 function GalleryMarqueeCard({ src, index }: { src: string; index: number }) {
   return (
-    <div className="relative h-52 sm:h-64 md:h-72 w-[16rem] sm:w-[20rem] md:w-[24rem] shrink-0 rounded-2xl overflow-hidden bg-violet-tint border border-violet-line shadow-[0_12px_40px_-20px_rgba(15,11,46,0.25)]">
+    <div className="relative h-44 sm:h-56 md:h-72 w-[14rem] sm:w-[18rem] md:w-[24rem] shrink-0 rounded-2xl overflow-hidden bg-violet-tint border border-violet-line shadow-[0_12px_40px_-20px_rgba(15,11,46,0.25)]">
       <img
         src={src}
         alt={`Gallery moment ${index + 1}`}
         draggable={false}
-        className="w-full h-full object-contain select-none"
+        className="w-full h-full object-cover select-none"
         loading="lazy"
       />
     </div>

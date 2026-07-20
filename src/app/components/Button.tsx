@@ -24,8 +24,8 @@ export function Button({
     ghost: 'text-ink hover:text-violet',
   };
   const sizes = {
-    md: 'px-6 py-3 text-sm',
-    lg: 'px-8 py-4 text-base',
+    md: 'px-5 py-2.5 text-sm sm:px-6 sm:py-3',
+    lg: 'px-6 py-3.5 text-sm sm:px-8 sm:py-4 sm:text-base w-full sm:w-auto',
   };
   const classes = `${base} ${variants[variant]} ${sizes[size]} ${className}`;
   if (href) {

@@ -93,7 +93,7 @@ export default function Home() {
       <Header />
 
       {/* HERO , bottom-text editorial overlay */}
-      <section className="relative w-full min-h-[100vh] overflow-hidden bg-[#E8E4DC]">
+      <section className="relative w-full min-h-[100svh] overflow-hidden bg-[#E8E4DC]">
         {/* Anchored below fixed header + object-top so her head isn't cropped */}
         <img
           src={heroPortrait}
@@ -109,27 +109,27 @@ export default function Home() {
           }}
         />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 md:px-10 min-h-[100vh] flex flex-col pt-32 sm:pt-36 md:pt-40 pb-14 md:pb-20">
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 md:px-10 min-h-[100svh] flex flex-col pt-28 sm:pt-36 md:pt-40 pb-10 sm:pb-14 md:pb-20">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex flex-wrap items-center justify-between gap-4 font-mono text-[11px] tracking-[0.3em] uppercase"
+            className="flex flex-wrap items-center justify-between gap-4 font-mono text-[10px] sm:text-[11px] tracking-[0.25em] sm:tracking-[0.3em] uppercase"
             style={{ color: '#0F0B2E' }}
           >
             <div className="flex items-center gap-3">
-              <span className="w-10 h-px" style={{ background: 'rgba(15,11,46,0.5)' }} />
+              <span className="w-8 sm:w-10 h-px" style={{ background: 'rgba(15,11,46,0.5)' }} />
               Personal CFO · Wealth Coach
             </div>
             
           </motion.div>
 
-          <div className="mt-auto max-w-5xl">
+          <div className=" mt-45 md:mt-auto max-w-5xl">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tighter leading-[1]"
+              className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tighter leading-[1.05] sm:leading-[1]"
               style={{ color: '#0F0B2E' }}
             >
               You built the career.<br />
@@ -141,7 +141,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.25 }}
-              className="mt-10 text-base md:text-xl leading-relaxed max-w-2xl"
+              className="mt-6 sm:mt-10 text-sm sm:text-base md:text-xl leading-relaxed max-w-2xl"
               style={{ color: '#4A4566' }}
             >
               I work as your Personal CFO, building bulletproof wealth systems for high-income
@@ -152,7 +152,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-12 flex flex-wrap items-center gap-4"
+              className="mt-8 sm:mt-12 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4"
             >
               <Button href="https://study.successwithsuman.com/l/f61fd9d4a1" size="lg">
                 Book a Strategy Call <ArrowRight className="w-4 h-4" />
@@ -172,7 +172,7 @@ export default function Home() {
       {/* STATS , clean typographic row */}
       <section className="px-5 sm:px-6 md:px-10 py-20 md:py-28">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-violet-line border border-violet-line rounded-3xl overflow-hidden">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-violet-line border border-violet-line rounded-2xl sm:rounded-3xl overflow-hidden">
             {stats.map((s, i) => (
               <motion.div
                 key={s.label}
@@ -180,16 +180,16 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="bg-white px-6 md:px-8 py-10 md:py-14"
+                className="bg-white px-4 sm:px-6 md:px-8 py-8 sm:py-10 md:py-14"
               >
                 <CountUp
                   to={s.to}
                   prefix={s.prefix}
                   suffix={s.suffix}
                   separator={s.separator}
-                  className="text-4xl md:text-6xl tracking-tighter text-ink block"
+                  className="text-3xl sm:text-4xl md:text-6xl tracking-tighter text-ink block"
                 />
-                <div className="mt-4 font-mono text-[10px] tracking-[0.25em] text-ink-mute uppercase">
+                <div className="mt-3 sm:mt-4 font-mono text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.25em] text-ink-mute uppercase">
                   {s.label}
                 </div>
               </motion.div>
@@ -417,7 +417,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="mt-10 grid grid-cols-3 border-y border-violet-line">
+            <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 border-y border-violet-line">
               {[
                 { v: 'IRDA', l: '& AMFI Certified' },
                 { v: 'Top 100', l: 'Speakers of India' },
@@ -425,12 +425,12 @@ export default function Home() {
               ].map((c, i) => (
                 <div
                   key={c.v}
-                  className={`flex flex-col justify-center gap-2 px-4 sm:px-5 md:px-6 py-7 md:py-8 ${
-                    i > 0 ? 'border-l border-violet-line' : ''
+                  className={`flex flex-col justify-center gap-1.5 sm:gap-2 px-4 sm:px-5 md:px-6 py-5 sm:py-7 md:py-8 ${
+                    i > 0 ? 'border-t sm:border-t-0 sm:border-l border-violet-line' : ''
                   }`}
                 >
-                  <div className="text-xl md:text-2xl tracking-tight leading-none">{c.v}</div>
-                  <div className="font-mono text-[10px] tracking-[0.25em] text-ink-mute uppercase leading-none">
+                  <div className="text-lg sm:text-xl md:text-2xl tracking-tight leading-none">{c.v}</div>
+                  <div className="font-mono text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.25em] text-ink-mute uppercase leading-none">
                     {c.l}
                   </div>
                 </div>
@@ -564,7 +564,7 @@ export default function Home() {
               href="https://www.trustpilot.com/review/successwithsuman.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-6 py-3.5 rounded-full border border-violet-line bg-white hover:border-violet hover:shadow-[0_8px_24px_-8px_rgba(91,75,255,0.25)] transition-all group"
+              className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 px-5 sm:px-6 py-3 sm:py-3.5 rounded-2xl sm:rounded-full border border-violet-line bg-white hover:border-violet hover:shadow-[0_8px_24px_-8px_rgba(91,75,255,0.25)] transition-all group w-full sm:w-auto justify-center"
             >
               <span className="flex items-center gap-1.5 text-[#00B67A]">
                 {[...Array(5)].map((_, k) => (
