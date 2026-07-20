@@ -24,6 +24,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  appType: 'spa',
   resolve: {
     alias: {
       // Alias @ to the src directory
