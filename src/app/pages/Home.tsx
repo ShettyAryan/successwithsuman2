@@ -6,21 +6,18 @@ import { motion } from 'motion/react';
 import { CountUp } from '../components/CountUp';
 
 import heroPortrait from '../../imports/hero_gpt.png';
-import sittingPortrait from '../../imports/aboutinner_1.png';
-import gallery1 from '../../imports/image-1.png';
-import gallery2 from '../../imports/image-2.png';
-import gallery3 from '../../imports/image-3.png';
-import gallery4 from '../../imports/image-4.png';
-import gallery5 from '../../imports/_A740288.JPG';
-import newPhoto1 from '../../imports/DSCF9246.jpg';
-import newPhoto2 from '../../imports/DSCF9287.jpg';
-import newPhoto3 from '../../imports/DSCF9295.jpg';
+import carousel1 from '../../imports/carousel-optimized/DSCF9246.jpg';
+import carousel2 from '../../imports/carousel-optimized/DSCF9287.jpg';
+import carousel3 from '../../imports/carousel-optimized/DSCF9295.jpg';
+import carousel4 from '../../imports/carousel-optimized/image-1.jpg';
+import carousel5 from '../../imports/carousel-optimized/image-2.jpg';
+import carousel6 from '../../imports/carousel-optimized/_A740288.jpg';
 import { useEffect, useState, useCallback, useRef, type TransitionEvent } from 'react';
 
 import ebook1 from '../../imports/ebook_1.jpeg';
 import ebook2 from '../../imports/ebook_2.jpeg';
 
-const aboutCarouselImages = [ newPhoto1, newPhoto2, newPhoto3, gallery1, gallery2, gallery5];
+const aboutCarouselImages = [carousel1, carousel2, carousel3, carousel4, carousel5, carousel6];
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -627,23 +624,41 @@ export default function Home() {
 
 function AboutCarousel() {
   const total = aboutCarouselImages.length;
-  // Clone last at start + first at end for a seamless circular loop
   const slides = [
     aboutCarouselImages[total - 1],
     ...aboutCarouselImages,
     aboutCarouselImages[0],
   ];
 
-  const [position, setPosition] = useState(1); // first real slide
+  const [position, setPosition] = useState(1);
   const [withTransition, setWithTransition] = useState(true);
   const [paused, setPaused] = useState(false);
+  const [loaded, setLoaded] = useState(() => new Set([0, 1, 2, total]));
   const jumping = useRef(false);
+  const reduceMotion = useRef(
+    typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  );
 
   const displayIndex = position === 0 ? total - 1 : position === total + 1 ? 0 : position - 1;
 
+  const markNearbyLoaded = useCallback((pos: number) => {
+    setLoaded((prev) => {
+      const next = new Set(prev);
+      for (let i = pos - 1; i <= pos + 1; i++) {
+        if (i >= 0 && i < slides.length) next.add(i);
+      }
+      return next;
+    });
+  }, [slides.length]);
+
+  useEffect(() => {
+    markNearbyLoaded(position);
+  }, [position, markNearbyLoaded]);
+
   const goTo = useCallback((nextPos: number) => {
     if (jumping.current) return;
-    setWithTransition(true);
+    setWithTransition(!reduceMotion.current);
     setPosition(nextPos);
   }, []);
 
@@ -677,9 +692,9 @@ function AboutCarousel() {
   useEffect(() => {
     if (paused) return;
     const id = setInterval(() => {
-      setWithTransition(true);
+      setWithTransition(!reduceMotion.current);
       setPosition((p) => p + 1);
-    }, 5000);
+    }, 5500);
     return () => clearInterval(id);
   }, [paused]);
 
@@ -688,43 +703,57 @@ function AboutCarousel() {
       className="relative"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
+      onTouchStart={() => setPaused(true)}
+      onTouchEnd={() => setPaused(false)}
     >
       <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl bg-violet-tint">
         <div
-          className="flex h-full will-change-transform"
+          className="flex h-full"
           style={{
-            transform: `translateX(-${position * 100}%)`,
+            transform: `translate3d(-${position * 100}%, 0, 0)`,
             transition: withTransition
-              ? 'transform 0.65s cubic-bezier(0.32, 0.72, 0, 1)'
+              ? 'transform 0.45s cubic-bezier(0.32, 0.72, 0, 1)'
               : 'none',
           }}
           onTransitionEnd={handleTransitionEnd}
         >
-          {slides.map((src, i) => (
-            <img
-              key={`${i}-${typeof src === 'string' ? src : i}`}
-              src={src}
-              alt={`Suman Manjrekar ${displayIndex + 1}`}
-              draggable={false}
-              className="h-full w-full min-w-full flex-shrink-0 object-cover object-top select-none"
-            />
-          ))}
+          {slides.map((src, i) => {
+            const isNear = Math.abs(i - position) <= 1 || loaded.has(i);
+            return (
+              <div
+                key={`${i}-${typeof src === 'string' ? src.slice(-20) : i}`}
+                className="h-full w-full min-w-full flex-shrink-0 bg-violet-tint"
+              >
+                {isNear ? (
+                  <img
+                    src={src}
+                    alt={`Suman Manjrekar ${displayIndex + 1}`}
+                    draggable={false}
+                    decoding="async"
+                    loading={i === 1 ? 'eager' : 'lazy'}
+                    fetchPriority={i === 1 ? 'high' : 'low'}
+                    className="h-full w-full object-cover object-top select-none"
+                  />
+                ) : null}
+              </div>
+            );
+          })}
         </div>
         <button
           onClick={prev}
           aria-label="Previous"
-          className="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-white text-ink grid place-items-center shadow-lg backdrop-blur transition-colors"
+          className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/90 hover:bg-white text-ink grid place-items-center shadow-lg backdrop-blur transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
         </button>
         <button
           onClick={next}
           aria-label="Next"
-          className="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-white text-ink grid place-items-center shadow-lg backdrop-blur transition-colors"
+          className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/90 hover:bg-white text-ink grid place-items-center shadow-lg backdrop-blur transition-colors"
         >
           <ArrowRight className="w-4 h-4" />
         </button>
-        <div className="absolute left-5 bottom-5 font-mono text-[10px] tracking-[0.3em] text-white uppercase">
+        <div className="absolute left-4 sm:left-5 bottom-4 sm:bottom-5 font-mono text-[10px] tracking-[0.3em] text-white uppercase">
           {String(displayIndex + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
         </div>
       </div>
