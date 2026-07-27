@@ -17,7 +17,21 @@ import { useEffect, useState, useCallback, useRef, type TransitionEvent } from '
 import ebook1 from '../../imports/ebook_1.jpeg';
 import ebook2 from '../../imports/ebook_2.jpeg';
 
-const aboutCarouselImages = [carousel1, carousel2, carousel3, carousel4, carousel5, carousel6];
+const aboutCarouselImages = [
+  carousel1,
+  'https://res.cloudinary.com/dsvgadc5d/image/upload/v1785131584/side_pose_light_jnqkii.jpg',
+  carousel2,
+  'https://res.cloudinary.com/dsvgadc5d/image/upload/v1785131574/mobile_g0nboq.jpg',
+  carousel3,
+  'https://res.cloudinary.com/dsvgadc5d/image/upload/v1785131571/greem_suit_kjr3xr.jpg',
+  carousel4,
+  'https://res.cloudinary.com/dsvgadc5d/image/upload/v1785131580/side_no_smile_tcbcqr.jpg',
+  carousel5,
+  'https://res.cloudinary.com/dsvgadc5d/image/upload/v1785131578/standing_cross_hands_u9jk0i.jpg',
+  carousel6,
+  'https://res.cloudinary.com/dsvgadc5d/image/upload/v1785131573/genn_suit_cross_legs_v2gjtd.jpg',
+  'https://res.cloudinary.com/dsvgadc5d/image/upload/v1785131578/sitting_powe_pose_f7sfl6.jpg',
+];
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
