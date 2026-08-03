@@ -35,7 +35,7 @@ export function Header() {
           className="min-w-0 truncate text-base sm:text-xl md:text-2xl tracking-tighter text-ink hover:text-violet transition-colors"
           style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 600 }}
         >
-          Success with Suman
+          Suman Manjrekar
         </Link>
 
         <nav className="hidden lg:flex items-center gap-8 shrink-0">
