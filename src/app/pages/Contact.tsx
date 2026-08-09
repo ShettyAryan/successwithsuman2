@@ -5,7 +5,8 @@ import { Footer } from '../components/Footer';
 import { Button } from '../components/Button';
 import { Seo } from '../components/Seo';
 import { PageBreadcrumb } from '../components/PageBreadcrumb';
-import { buildGraph, organizationNode, breadcrumbNode } from '../lib/schema';
+import { FAQItem } from '../components/FAQItem';
+import { buildGraph, organizationNode, breadcrumbNode, faqPageNode } from '../lib/schema';
 import { Mail, Phone, MapPin, Calendar, Instagram, ArrowRight, CheckCircle2 } from 'lucide-react';
 const heroPortrait =
   'https://res.cloudinary.com/dzq2acoyj/image/upload/f_auto,q_auto,w_1920/v1784576887/ChatGPT_Image_Jul_21_2026_01_16_24_AM_ki8e1w.png';
@@ -25,12 +26,32 @@ const fadeUp = {
   transition: { duration: 0.6, ease: 'easeOut' },
 };
 
+const contactFaqs = [
+  {
+    q: 'How quickly does Suman respond?',
+    a: 'Within one business day of submitting the contact form or booking a strategy call.',
+  },
+  {
+    q: 'Does she work with clients outside India?',
+    a: 'Yes, she serves clients across India and NRIs.',
+  },
+  {
+    q: 'Is my information kept private?',
+    a: 'Yes, contact details are not used for newsletters or shared with third parties.',
+  },
+  {
+    q: 'What happens on a strategy call?',
+    a: 'A private conversation to review your situation and goals, with clarity whether or not you choose to work together.',
+  },
+];
+
 const contactJsonLd = buildGraph([
   organizationNode,
   breadcrumbNode([
     { name: 'Home', path: '/' },
     { name: 'Contact', path: '/contact' },
   ]),
+  faqPageNode(contactFaqs),
 ]);
 
 export default function Contact() {
@@ -265,6 +286,23 @@ export default function Contact() {
               </div>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="px-5 sm:px-6 md:px-10 pb-20 md:pb-28">
+        <div className="max-w-4xl mx-auto">
+          <motion.div className="mb-10 md:mb-14" {...fadeUp}>
+            <div className="font-mono text-xs tracking-widest text-violet uppercase mb-4">FAQ</div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl tracking-tighter leading-tight">
+              Questions, answered.
+            </h2>
+          </motion.div>
+          <div className="space-y-3">
+            {contactFaqs.map((f) => (
+              <FAQItem key={f.q} {...f} />
+            ))}
+          </div>
         </div>
       </section>
 

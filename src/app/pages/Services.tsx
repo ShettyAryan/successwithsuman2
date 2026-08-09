@@ -4,7 +4,8 @@ import { Footer } from '../components/Footer';
 import { Button } from '../components/Button';
 import { Seo } from '../components/Seo';
 import { PageBreadcrumb } from '../components/PageBreadcrumb';
-import { buildGraph, organizationNode, breadcrumbNode, serviceNode } from '../lib/schema';
+import { FAQItem } from '../components/FAQItem';
+import { buildGraph, organizationNode, breadcrumbNode, serviceNode, faqPageNode } from '../lib/schema';
 import {
   ArrowRight,
   Heart,
@@ -77,12 +78,36 @@ const offerings = [
   { icon: TrendingUp, label: 'Equity & ETFs', sub: 'Direct market exposure' },
 ];
 
+const servicesFaqs = [
+  {
+    q: 'What insurance products does she help with?',
+    a: 'Life, health, travel and personal accident insurance, plus business insurance, mediclaim, and income protection.',
+  },
+  {
+    q: 'What investment products are covered?',
+    a: 'Mutual funds, equity and ETFs, bonds and fixed deposits, PMS, and demat accounts.',
+  },
+  {
+    q: 'Does she help with retirement and estate planning?',
+    a: 'Yes: retirement planning, children’s future planning, inheritance, NPS, and loan-against-security guidance.',
+  },
+  {
+    q: 'How are products chosen?',
+    a: 'Across protection, growth and liquidity, every product is selected to fit a single, coherent wealth strategy structured around your life stage and goals.',
+  },
+  {
+    q: 'Who is this for?',
+    a: 'Working professionals and doctors seeking a complete, coordinated plan rather than fragmented, one-off purchases.',
+  },
+];
+
 const servicesJsonLd = buildGraph([
   organizationNode,
   breadcrumbNode([
     { name: 'Home', path: '/' },
     { name: 'Services', path: '/services' },
   ]),
+  faqPageNode(servicesFaqs),
   serviceNode({
     name: 'Insurance Planning',
     serviceType: 'Insurance Advisory',
@@ -289,6 +314,25 @@ export default function Services() {
                   {sub}
                 </div>
               </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="px-5 sm:px-6 md:px-10 py-20 md:py-28 bg-off-white">
+        <div className="max-w-4xl mx-auto">
+          <motion.div className="max-w-3xl mb-14 md:mb-20" {...fadeUp}>
+            <div className="font-mono text-[11px] tracking-[0.3em] text-violet uppercase mb-5">
+              FAQ
+            </div>
+            <h2 className="text-3xl sm:text-5xl md:text-6xl tracking-tighter leading-[1.05] sm:leading-[1] text-ink">
+              Questions, answered.
+            </h2>
+          </motion.div>
+          <div className="space-y-3">
+            {servicesFaqs.map((f) => (
+              <FAQItem key={f.q} {...f} />
             ))}
           </div>
         </div>

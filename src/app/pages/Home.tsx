@@ -2,10 +2,11 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { Button } from '../components/Button';
 import { Seo } from '../components/Seo';
+import { FAQItem } from '../components/FAQItem';
 import { ArrowRight, ArrowUpRight, ArrowLeft, Star, Shield, TrendingUp, Compass } from 'lucide-react';
 import { motion } from 'motion/react';
 import { CountUp } from '../components/CountUp';
-import { buildGraph, organizationNode, personNode, websiteNode } from '../lib/schema';
+import { buildGraph, organizationNode, personNode, websiteNode, faqPageNode } from '../lib/schema';
 
 import heroPortrait from '../../imports/hero_gpt.webp';
 import carousel1 from '../../imports/carousel-optimized/DSCF9246.jpg';
@@ -100,7 +101,30 @@ const testimonials = [
   },
 ];
 
-const homeJsonLd = buildGraph([organizationNode, personNode, websiteNode()]);
+const homeFaqs = [
+  {
+    q: 'Who does Suman Manjrekar work with?',
+    a: 'Working professionals and doctors who want their earnings to grow into lasting, protected wealth rather than staying as unstructured income.',
+  },
+  {
+    q: 'What does a Personal CFO do?',
+    a: 'Suman works as a Personal CFO, tracking inflows, optimising allocations and architecting systems that protect, multiply and outlive your earnings.',
+  },
+  {
+    q: 'What areas does she cover?',
+    a: 'Three areas: protection (life, health, travel and other insurance), growth (mutual funds, investing, equity, bonds), and planning (retirement, children’s future, inheritance and estate planning).',
+  },
+  {
+    q: 'Is she certified?',
+    a: 'Yes, IRDA and AMFI certified, with 19+ years in financial services and 7,000+ hours of training.',
+  },
+  {
+    q: 'How can I start working with her?',
+    a: 'Book a private strategy call from the Contact page, or explore the Masterclass to learn her MMH framework first.',
+  },
+];
+
+const homeJsonLd = buildGraph([organizationNode, personNode, websiteNode(), faqPageNode(homeFaqs)]);
 
 export default function Home() {
   return (
@@ -600,6 +624,25 @@ export default function Home() {
               <span className="text-[#00B67A] font-semibold tracking-tight group-hover:text-[#00965e] transition-colors">Trustpilot</span>
             </a>
           </motion.div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="px-5 sm:px-6 md:px-10 py-20 md:py-28">
+        <div className="max-w-4xl mx-auto">
+          <motion.div className="text-center mb-14" {...fadeUp}>
+            <div className="font-mono text-[11px] tracking-[0.3em] text-violet uppercase mb-5">
+              FAQ
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl tracking-tighter leading-[1.05]">
+              Questions, answered.
+            </h2>
+          </motion.div>
+          <div className="space-y-3">
+            {homeFaqs.map((f) => (
+              <FAQItem key={f.q} {...f} />
+            ))}
+          </div>
         </div>
       </section>
 

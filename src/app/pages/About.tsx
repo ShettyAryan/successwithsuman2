@@ -6,8 +6,9 @@ import { Button } from '../components/Button';
 import { CountUp } from '../components/CountUp';
 import { Seo } from '../components/Seo';
 import { PageBreadcrumb } from '../components/PageBreadcrumb';
+import { FAQItem } from '../components/FAQItem';
 import { ArrowRight, BadgeCheck, Mic, BookOpen, GraduationCap, Trophy, Star } from 'lucide-react';
-import { buildGraph, organizationNode, personNode, breadcrumbNode } from '../lib/schema';
+import { buildGraph, organizationNode, personNode, breadcrumbNode, faqPageNode } from '../lib/schema';
 
 const heroPortrait =
   'https://res.cloudinary.com/dzq2acoyj/image/upload/f_auto,q_auto,w_1920/v1784576290/ChatGPT_Image_Jul_21_2026_01_07_37_AM_dcbx1a.png';
@@ -62,6 +63,29 @@ const values = [
   { title: 'Built to outlive.', body: 'A plan that retires you comfortably is fine. A plan that outlives you is the goal.' },
 ];
 
+const aboutFaqs = [
+  {
+    q: 'What is the MMH Formula?',
+    a: 'Money Management, Mindset and Healing — a three-pillar framework treating wealth building as financial architecture, behaviour and unresolved money beliefs together.',
+  },
+  {
+    q: 'How long has Suman been in financial services?',
+    a: 'Since 2006, over 19 years, building the MMH Formula in 2017 and publishing her bestseller in 2022.',
+  },
+  {
+    q: 'What is "I Will Never Die" about?',
+    a: "Her Amazon bestselling book, published in 2022, framing legacy-first wealth, building financial systems that outlive the person who built them.",
+  },
+  {
+    q: 'What credentials does she hold?',
+    a: 'IRDA and AMFI certification, 7,000+ hours of training, and recognition among the Top 100 Speakers of India (2025).',
+  },
+  {
+    q: 'What does she believe makes a good financial plan?',
+    a: "That the simplest plan that compounds is the best plan, built around a client's actual life, not commission incentives.",
+  },
+];
+
 const aboutJsonLd = buildGraph([
   organizationNode,
   personNode,
@@ -69,6 +93,7 @@ const aboutJsonLd = buildGraph([
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
   ]),
+  faqPageNode(aboutFaqs),
 ]);
 
 export default function About() {
@@ -324,6 +349,23 @@ export default function About() {
               <div className="mt-2 text-ink-soft text-xs sm:text-sm leading-snug">{s.l}</div>
             </motion.div>
           ))}
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="px-5 sm:px-6 md:px-10 py-16 md:py-24 bg-off-white">
+        <div className="max-w-4xl mx-auto">
+          <motion.div className="mb-10 md:mb-14 max-w-2xl" {...fadeUp}>
+            <div className="font-mono text-xs tracking-widest text-violet uppercase mb-4">FAQ</div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl tracking-tighter leading-tight">
+              Questions, answered.
+            </h2>
+          </motion.div>
+          <div className="space-y-3">
+            {aboutFaqs.map((f) => (
+              <FAQItem key={f.q} {...f} />
+            ))}
+          </div>
         </div>
       </section>
 

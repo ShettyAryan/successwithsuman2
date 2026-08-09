@@ -1,13 +1,14 @@
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { Button } from '../components/Button';
-import { ArrowRight, ArrowLeft, Shield, TrendingUp, Compass, Landmark, Check, ChevronDown, MessageCircle, Play, Star, ExternalLink } from 'lucide-react';
+import { ArrowRight, ArrowLeft, Shield, TrendingUp, Compass, Landmark, Check, MessageCircle, Play, Star, ExternalLink } from 'lucide-react';
 import { useState, useEffect, useCallback, useRef, type TransitionEvent } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import portraitImg from '../../imports/masterclass_hero.webp';
 import { CountUp } from '../components/CountUp';
 import { Seo } from '../components/Seo';
 import { PageBreadcrumb } from '../components/PageBreadcrumb';
+import { FAQItem } from '../components/FAQItem';
 import {
   buildGraph,
   organizationNode,
@@ -168,35 +169,6 @@ function VideoTestimonialCard({ src, index }: { src: string; index: number }) {
         )}
       </button>
     </div>
-  );
-}
-
-function FAQItem({ q, a }: { q: string; a: string }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <motion.button
-      onClick={() => setOpen(!open)}
-      whileHover={{ y: -2 }}
-      className="w-full text-left p-6 rounded-2xl bg-white border border-violet-line hover:border-violet transition-colors"
-    >
-      <div className="flex items-center justify-between gap-6">
-        <span className="text-lg">{q}</span>
-        <ChevronDown className={`w-5 h-5 text-violet shrink-0 transition-transform ${open ? 'rotate-180' : ''}`} />
-      </div>
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="overflow-hidden"
-          >
-            <p className="text-ink-soft leading-relaxed mt-4">{a}</p>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.button>
   );
 }
 
