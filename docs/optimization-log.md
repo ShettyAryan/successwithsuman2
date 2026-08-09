@@ -86,12 +86,33 @@ Commit: `Add FAQ sections to Home, About, Services and Contact`
 ### Not applicable
 - **"Reviewed by" / "written by" bylines, published/updated dates on blog posts**: the site has no blog or dated-article content type. Nothing to add. Revisit if a blog/resources section gets built.
 
+## Post-deploy fix: Puppeteer failed to launch on Vercel
+
+Commit: `Fix Vercel build failure: Puppeteer Chrome missing shared libraries`
+
+First Vercel deployment failed the build entirely: the postbuild prerender
+step's Puppeteer-downloaded Chrome couldn't launch on Vercel's build image
+(`error while loading shared libraries: libnspr4.so`). Fixed by:
+- Swapping `puppeteer` for `puppeteer-core` + `@sparticuz/chromium` (a
+  Chromium build with those shared libraries bundled in, built for exactly
+  this — serverless/CI Linux images that lack system Chrome deps).
+- `scripts/prerender.mjs` now tries a local Chrome install first (what's
+  used in local dev) and only pulls in `@sparticuz/chromium` when none is
+  found, which is Vercel's case.
+- Made the whole step non-fatal: a browser-launch failure or a single
+  route's render failure now logs a warning and ships the plain SPA build
+  for the affected route(s) instead of failing the deployment. Verified
+  locally that forcing a launch failure exits 0 with the SPA build intact.
+
+This also confirms **Vercel is the live hosting platform** — resolves open
+item #2 below.
+
 ## Still open / needs your input
 
 1. Confirm `successwithsuman.com` is the real production domain (used throughout canonical URLs, sitemap, schema, and `llms.txt`).
-2. Confirm which hosting platform is actually live (Vercel/Netlify/Apache configs were all present before this work; all three now carry equivalent security headers so it shouldn't matter, but worth cleaning up the unused ones eventually).
-3. Once deployed: run the actual Google Rich Results Test and Search Console URL Inspection against the live site.
-4. Trustpilot review count, if you want `AggregateRating` schema added.
-5. Video testimonial transcripts, if you want them captioned/transcribed for accessibility and AI-extractability.
+2. Once deployed: run the actual Google Rich Results Test and Search Console URL Inspection against the live site.
+3. Trustpilot review count, if you want `AggregateRating` schema added.
+4. Video testimonial transcripts, if you want them captioned/transcribed for accessibility and AI-extractability.
+5. Now that Vercel is confirmed as the live platform, the Netlify (`public/_headers`, `public/_redirects`) and Apache (`public/.htaccess`) configs are dead weight — safe to delete whenever you want, not urgent.
 
 `llms.txt` shipped (`public/llms.txt`) — added in a separate request using the format you provided.
