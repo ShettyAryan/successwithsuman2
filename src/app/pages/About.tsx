@@ -4,27 +4,30 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { Button } from '../components/Button';
 import { CountUp } from '../components/CountUp';
+import { Seo } from '../components/Seo';
+import { PageBreadcrumb } from '../components/PageBreadcrumb';
 import { ArrowRight, BadgeCheck, Mic, BookOpen, GraduationCap, Trophy, Star } from 'lucide-react';
+import { buildGraph, organizationNode, personNode, breadcrumbNode } from '../lib/schema';
 
 const heroPortrait =
-  'https://res.cloudinary.com/dzq2acoyj/image/upload/v1784576290/ChatGPT_Image_Jul_21_2026_01_07_37_AM_dcbx1a.png';
+  'https://res.cloudinary.com/dzq2acoyj/image/upload/f_auto,q_auto,w_1920/v1784576290/ChatGPT_Image_Jul_21_2026_01_07_37_AM_dcbx1a.png';
 
 const galleryImages = [
-  'https://res.cloudinary.com/dzq2acoyj/image/upload/v1784581779/IMG_20170815_101942_xx0ggy.jpg',
-  'https://res.cloudinary.com/dzq2acoyj/image/upload/v1784581775/IMG_20210221_115347__01_eyhilc.jpg',
-  'https://res.cloudinary.com/dzq2acoyj/image/upload/v1784581774/20240713_204138_yqkryz.jpg',
-  'https://res.cloudinary.com/dzq2acoyj/image/upload/v1784581774/IMG_20191009_133019_yue4ow.jpg',
-  'https://res.cloudinary.com/dzq2acoyj/image/upload/v1784581772/SGR3_mqsbzg.jpg',
-  'https://res.cloudinary.com/dzq2acoyj/image/upload/v1784581766/IMG_20190510_131949_ow9tg5.jpg',
-  'https://res.cloudinary.com/dzq2acoyj/image/upload/v1784581762/IMG-20190430-WA0004_cwa3ml.jpg',
-  'https://res.cloudinary.com/dzq2acoyj/image/upload/v1784581758/I_can_coach_1_lbwizv.jpg',
-  'https://res.cloudinary.com/dzq2acoyj/image/upload/v1784581758/0K2A8456_t57vlm.webp',
-  'https://res.cloudinary.com/dzq2acoyj/image/upload/v1784581753/IMG-20180813-WA0069_wgx92f.jpg',
-  'https://res.cloudinary.com/dzq2acoyj/image/upload/v1784581686/sgr4_wn6ibd.jpg',
-  'https://res.cloudinary.com/dzq2acoyj/image/upload/v1784581688/IMG_20180820_172308_wzogik.jpg',
-  'https://res.cloudinary.com/dzq2acoyj/image/upload/v1784581678/IMG_20230824_155014_lbyiic.jpg',
-  'https://res.cloudinary.com/dzq2acoyj/image/upload/v1784581657/IMG_20170811_184026_jadcim.jpg',
-  'https://res.cloudinary.com/dzq2acoyj/image/upload/v1784581655/I_can_coach_2_lrqelf.jpg',
+  'https://res.cloudinary.com/dzq2acoyj/image/upload/f_auto,q_auto,w_800/v1784581779/IMG_20170815_101942_xx0ggy.jpg',
+  'https://res.cloudinary.com/dzq2acoyj/image/upload/f_auto,q_auto,w_800/v1784581775/IMG_20210221_115347__01_eyhilc.jpg',
+  'https://res.cloudinary.com/dzq2acoyj/image/upload/f_auto,q_auto,w_800/v1784581774/20240713_204138_yqkryz.jpg',
+  'https://res.cloudinary.com/dzq2acoyj/image/upload/f_auto,q_auto,w_800/v1784581774/IMG_20191009_133019_yue4ow.jpg',
+  'https://res.cloudinary.com/dzq2acoyj/image/upload/f_auto,q_auto,w_800/v1784581772/SGR3_mqsbzg.jpg',
+  'https://res.cloudinary.com/dzq2acoyj/image/upload/f_auto,q_auto,w_800/v1784581766/IMG_20190510_131949_ow9tg5.jpg',
+  'https://res.cloudinary.com/dzq2acoyj/image/upload/f_auto,q_auto,w_800/v1784581762/IMG-20190430-WA0004_cwa3ml.jpg',
+  'https://res.cloudinary.com/dzq2acoyj/image/upload/f_auto,q_auto,w_800/v1784581758/I_can_coach_1_lbwizv.jpg',
+  'https://res.cloudinary.com/dzq2acoyj/image/upload/f_auto,q_auto,w_800/v1784581758/0K2A8456_t57vlm.webp',
+  'https://res.cloudinary.com/dzq2acoyj/image/upload/f_auto,q_auto,w_800/v1784581753/IMG-20180813-WA0069_wgx92f.jpg',
+  'https://res.cloudinary.com/dzq2acoyj/image/upload/f_auto,q_auto,w_800/v1784581686/sgr4_wn6ibd.jpg',
+  'https://res.cloudinary.com/dzq2acoyj/image/upload/f_auto,q_auto,w_800/v1784581688/IMG_20180820_172308_wzogik.jpg',
+  'https://res.cloudinary.com/dzq2acoyj/image/upload/f_auto,q_auto,w_800/v1784581678/IMG_20230824_155014_lbyiic.jpg',
+  'https://res.cloudinary.com/dzq2acoyj/image/upload/f_auto,q_auto,w_800/v1784581657/IMG_20170811_184026_jadcim.jpg',
+  'https://res.cloudinary.com/dzq2acoyj/image/upload/f_auto,q_auto,w_800/v1784581655/I_can_coach_2_lrqelf.jpg',
 ];
 
 const fadeUp = {
@@ -59,9 +62,24 @@ const values = [
   { title: 'Built to outlive.', body: 'A plan that retires you comfortably is fine. A plan that outlives you is the goal.' },
 ];
 
+const aboutJsonLd = buildGraph([
+  organizationNode,
+  personNode,
+  breadcrumbNode([
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
+  ]),
+]);
+
 export default function About() {
   return (
     <div className="bg-white overflow-x-hidden">
+      <Seo
+        title="About Suman Manjrekar | Personal CFO, Coach & Author"
+        description="Meet Suman Manjrekar: IRDA & AMFI certified wealth coach, Amazon bestselling author of 'I Will Never Die', and creator of the MMH wealth framework."
+        path="/about"
+        jsonLd={aboutJsonLd}
+      />
       <Header />
 
       {/* HERO , bottom-text editorial overlay */}
@@ -69,7 +87,9 @@ export default function About() {
         {/* Mobile: header clearance + subject crop. Desktop: previous scaled framing preserved */}
         <img
           src={heroPortrait}
-          alt="Suman Manjrekar"
+          alt="Suman Manjrekar, Personal CFO, Wealth Coach and author"
+          fetchPriority="high"
+          decoding="async"
           className="absolute left-0 right-0 bottom-0 top-16 w-full object-cover object-[80%_18%] sm:inset-0 sm:top-0 sm:object-[65%_35%] sm:scale-[1.25] sm:origin-[65%_38%]"
         />
         <div
@@ -132,6 +152,8 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      <PageBreadcrumb page="About" />
 
       {/* STORY */}
       <section className="px-5 sm:px-6 md:px-10 py-16 md:py-24 bg-off-white">
@@ -234,7 +256,7 @@ export default function About() {
                 >
                   <div className={`pl-12 md:pl-0 ${i % 2 === 1 ? 'md:text-left md:pl-12' : 'md:text-right md:pr-12'}`}>
                     <div className="font-mono text-xs tracking-widest text-violet">{t.year}</div>
-                    <div className="text-2xl tracking-tighter mt-2 mb-2">{t.title}</div>
+                    <h3 className="text-2xl tracking-tighter mt-2 mb-2">{t.title}</h3>
                     <p className="text-sm text-ink-soft leading-relaxed">{t.body}</p>
                   </div>
                   <span className="absolute left-4 md:left-1/2 top-2 w-3 h-3 rounded-full bg-violet ring-4 ring-violet-soft md:-translate-x-1/2" />
@@ -266,7 +288,7 @@ export default function About() {
                 whileHover={{ y: -4 }}
                 className="p-7 sm:p-8 rounded-2xl bg-white border border-violet-line"
               >
-                <div className="text-2xl tracking-tighter mb-3">{v.title}</div>
+                <h3 className="text-2xl tracking-tighter mb-3">{v.title}</h3>
                 <p className="text-ink-soft leading-relaxed">{v.body}</p>
               </motion.div>
             ))}
@@ -389,10 +411,11 @@ function GalleryMarqueeCard({ src, index }: { src: string; index: number }) {
     <div className="relative h-44 sm:h-56 md:h-72 w-[14rem] sm:w-[18rem] md:w-[24rem] shrink-0 rounded-2xl overflow-hidden bg-violet-tint border border-violet-line shadow-[0_12px_40px_-20px_rgba(15,11,46,0.25)]">
       <img
         src={src}
-        alt={`Gallery moment ${index + 1}`}
+        alt={`Suman Manjrekar speaking and coaching clients — photo ${index + 1}`}
         draggable={false}
         className="w-full h-full object-cover select-none"
         loading="lazy"
+        decoding="async"
       />
     </div>
   );

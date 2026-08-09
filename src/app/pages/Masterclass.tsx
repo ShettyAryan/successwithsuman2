@@ -4,8 +4,18 @@ import { Button } from '../components/Button';
 import { ArrowRight, ArrowLeft, Shield, TrendingUp, Compass, Landmark, Check, ChevronDown, MessageCircle, Play, Star, ExternalLink } from 'lucide-react';
 import { useState, useEffect, useCallback, useRef, type TransitionEvent } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import portraitImg from '../../imports/masterclass_hero.png';
+import portraitImg from '../../imports/masterclass_hero.webp';
 import { CountUp } from '../components/CountUp';
+import { Seo } from '../components/Seo';
+import { PageBreadcrumb } from '../components/PageBreadcrumb';
+import {
+  buildGraph,
+  organizationNode,
+  breadcrumbNode,
+  faqPageNode,
+  courseNode,
+  reviewNodes,
+} from '../lib/schema';
 
 const pains = [
   'High income but no real wealth on the balance sheet.',
@@ -62,15 +72,15 @@ const faqs = [
 ];
 
 const whatsappTestimonials = [
-  'https://res.cloudinary.com/dzq2acoyj/image/upload/v1784576221/whats_app_testimoney_Pratibha_wtf3vo.jpg',
-  'https://res.cloudinary.com/dzq2acoyj/image/upload/v1784576220/testimony_moses_p3o7oe.jpg',
-  'https://res.cloudinary.com/dzq2acoyj/image/upload/v1784576220/Binal_gratitude_affirmations_tlpwp7.jpg',
-  'https://res.cloudinary.com/dzq2acoyj/image/upload/v1784576219/testimoney_gratitude_pfhij6.jpg',
-  'https://res.cloudinary.com/dzq2acoyj/image/upload/v1784576219/testimony_chhaya_vdwxlv.jpg',
-  'https://res.cloudinary.com/dzq2acoyj/image/upload/v1784576218/Vinitha_vjrink.jpg',
-  'https://res.cloudinary.com/dzq2acoyj/image/upload/v1784576217/Gunjan_hlj0ql.jpg',
-  'https://res.cloudinary.com/dzq2acoyj/image/upload/v1784576217/multi_billionair_wpwzz6.jpg',
-  'https://res.cloudinary.com/dzq2acoyj/image/upload/v1784576217/Darshana_beht3h.jpg',
+  'https://res.cloudinary.com/dzq2acoyj/image/upload/f_auto,q_auto,w_800/v1784576221/whats_app_testimoney_Pratibha_wtf3vo.jpg',
+  'https://res.cloudinary.com/dzq2acoyj/image/upload/f_auto,q_auto,w_800/v1784576220/testimony_moses_p3o7oe.jpg',
+  'https://res.cloudinary.com/dzq2acoyj/image/upload/f_auto,q_auto,w_800/v1784576220/Binal_gratitude_affirmations_tlpwp7.jpg',
+  'https://res.cloudinary.com/dzq2acoyj/image/upload/f_auto,q_auto,w_800/v1784576219/testimoney_gratitude_pfhij6.jpg',
+  'https://res.cloudinary.com/dzq2acoyj/image/upload/f_auto,q_auto,w_800/v1784576219/testimony_chhaya_vdwxlv.jpg',
+  'https://res.cloudinary.com/dzq2acoyj/image/upload/f_auto,q_auto,w_800/v1784576218/Vinitha_vjrink.jpg',
+  'https://res.cloudinary.com/dzq2acoyj/image/upload/f_auto,q_auto,w_800/v1784576217/Gunjan_hlj0ql.jpg',
+  'https://res.cloudinary.com/dzq2acoyj/image/upload/f_auto,q_auto,w_800/v1784576217/multi_billionair_wpwzz6.jpg',
+  'https://res.cloudinary.com/dzq2acoyj/image/upload/f_auto,q_auto,w_800/v1784576217/Darshana_beht3h.jpg',
 ];
 
 const trustpilotReviews = [
@@ -101,9 +111,9 @@ const trustpilotReviews = [
 ];
 
 const videoTestimonials = [
-  'https://res.cloudinary.com/dzq2acoyj/video/upload/v1784578377/Client_Getting_Breakthrough_of_Limitations_-_Suman_Manjrekar_1080p_ipfr33.mp4',
-  'https://res.cloudinary.com/dzq2acoyj/video/upload/v1784578357/I_Tried_Money_Manifestation_Techniques_-_Suman_Manjrekar_1080p_zfifc2.mp4',
-  'https://res.cloudinary.com/dzq2acoyj/video/upload/v1784578376/Why_Santosh_Can_t_Stop_Talking_About_This_-_Suman_Manjrekar_1080p_vgy1nh.mp4',
+  'https://res.cloudinary.com/dzq2acoyj/video/upload/q_auto/v1784578377/Client_Getting_Breakthrough_of_Limitations_-_Suman_Manjrekar_1080p_ipfr33.mp4',
+  'https://res.cloudinary.com/dzq2acoyj/video/upload/q_auto/v1784578357/I_Tried_Money_Manifestation_Techniques_-_Suman_Manjrekar_1080p_zfifc2.mp4',
+  'https://res.cloudinary.com/dzq2acoyj/video/upload/q_auto/v1784578376/Why_Santosh_Can_t_Stop_Talking_About_This_-_Suman_Manjrekar_1080p_vgy1nh.mp4',
 ];
 
 const tabs = [
@@ -190,11 +200,28 @@ function FAQItem({ q, a }: { q: string; a: string }) {
   );
 }
 
+const masterclassJsonLd = buildGraph([
+  organizationNode,
+  breadcrumbNode([
+    { name: 'Home', path: '/' },
+    { name: 'Masterclass', path: '/masterclass' },
+  ]),
+  courseNode(),
+  faqPageNode(faqs),
+  ...reviewNodes(trustpilotReviews.map((r) => ({ name: r.name, quote: r.quote, rating: r.rating }))),
+]);
+
 export default function Masterclass() {
   const [activeTab, setActiveTab] = useState<'whatsapp' | 'video' | 'trustpilot'>('whatsapp');
 
   return (
     <div className="bg-white overflow-x-hidden">
+      <Seo
+        title="The MMH Masterclass | Suman Manjrekar's Wealth Framework"
+        description="Learn the MMH Formula, Money Management, Mindset, Healing, Suman Manjrekar's signature system for building wealth that protects, multiplies and outlives you."
+        path="/masterclass"
+        jsonLd={masterclassJsonLd}
+      />
       <Header />
 
       {/* HERO , bottom-text editorial overlay */}
@@ -202,7 +229,9 @@ export default function Masterclass() {
         {/* Anchored below fixed header + object-top so her head isn't cropped */}
         <img
           src={portraitImg}
-          alt="Suman Manjrekar"
+          alt="Suman Manjrekar — The MMH Wealth Masterclass"
+          fetchPriority="high"
+          decoding="async"
           className="absolute left-0 right-0 bottom-0 top-16 md:top-[4.5rem] w-full object-cover object-[75%_0%] sm:object-[center_0%]"
         />
         <div
@@ -268,6 +297,8 @@ export default function Masterclass() {
           </div>
         </div>
       </section>
+
+      <PageBreadcrumb page="Masterclass" />
 
       {/* TESTIMONIALS WITH TABS */}
       <section className="px-5 sm:px-6 md:px-10 py-16 md:py-24 bg-off-white">
@@ -824,8 +855,10 @@ function WhatsAppTestimonialsCarousel() {
               <div className="aspect-[3/4] rounded-2xl overflow-hidden border border-violet-line shadow-sm bg-[#f5c4b5]">
                 <img
                   src={src}
-                  alt={`WhatsApp testimonial ${(i % total) + 1}`}
+                  alt={`WhatsApp testimonial from a client of Suman Manjrekar's MMH wealth coaching, message ${(i % total) + 1}`}
                   draggable={false}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-contain select-none"
                 />
               </div>

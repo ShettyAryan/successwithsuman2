@@ -3,9 +3,12 @@ import { motion } from 'motion/react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { Button } from '../components/Button';
+import { Seo } from '../components/Seo';
+import { PageBreadcrumb } from '../components/PageBreadcrumb';
+import { buildGraph, organizationNode, breadcrumbNode } from '../lib/schema';
 import { Mail, Phone, MapPin, Calendar, Instagram, ArrowRight, CheckCircle2 } from 'lucide-react';
 const heroPortrait =
-  'https://res.cloudinary.com/dzq2acoyj/image/upload/v1784576887/ChatGPT_Image_Jul_21_2026_01_16_24_AM_ki8e1w.png';
+  'https://res.cloudinary.com/dzq2acoyj/image/upload/f_auto,q_auto,w_1920/v1784576887/ChatGPT_Image_Jul_21_2026_01_16_24_AM_ki8e1w.png';
 
 const contactItems = [
   { icon: Mail, label: 'Email', value: 'connect@successwithsuman.com', href: 'mailto:connect@successwithsuman.com' },
@@ -22,6 +25,14 @@ const fadeUp = {
   transition: { duration: 0.6, ease: 'easeOut' },
 };
 
+const contactJsonLd = buildGraph([
+  organizationNode,
+  breadcrumbNode([
+    { name: 'Home', path: '/' },
+    { name: 'Contact', path: '/contact' },
+  ]),
+]);
+
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', phone: '', interest: 'Strategy call', message: '' });
@@ -37,6 +48,12 @@ export default function Contact() {
 
   return (
     <div className="bg-white overflow-x-hidden">
+      <Seo
+        title="Contact Suman Manjrekar | Book a Wealth Strategy Call"
+        description="Get in touch with Suman Manjrekar to book a private wealth strategy call. High-income professionals, doctors and NRIs get a reply within one business day."
+        path="/contact"
+        jsonLd={contactJsonLd}
+      />
       <Header />
 
       {/* HERO , bottom-text editorial overlay */}
@@ -44,7 +61,9 @@ export default function Contact() {
         {/* Mobile: header clearance + subject crop. Desktop: previous framing preserved */}
         <img
           src={heroPortrait}
-          alt="Suman Manjrekar"
+          alt="Suman Manjrekar, Personal CFO — contact and strategy call booking"
+          fetchPriority="high"
+          decoding="async"
           className="absolute left-0 right-0 bottom-0 top-16 w-full object-cover object-[82%_16%] sm:top-0 sm:bottom-auto sm:h-[118%] sm:object-[72%_28%] sm:-translate-y-[10%]"
         />
         <div
@@ -106,6 +125,8 @@ export default function Contact() {
           </div>
         </div>
       </section>
+
+      <PageBreadcrumb page="Contact" />
 
       {/* FORM + INFO */}
       <section className="px-5 sm:px-6 md:px-10 pt-20 md:pt-28 pb-20 md:pb-28">
@@ -205,6 +226,7 @@ export default function Contact() {
           </motion.div>
 
           <motion.div className="md:col-span-5 space-y-4" {...fadeUp}>
+            <h2 className="font-mono text-xs tracking-widest text-violet uppercase mb-1">Contact Information</h2>
             {contactItems.map(({ icon: Icon, label, value, href }, i) => (
               <motion.a
                 key={label}

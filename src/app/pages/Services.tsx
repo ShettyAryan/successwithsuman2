@@ -2,6 +2,9 @@ import { motion } from 'motion/react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { Button } from '../components/Button';
+import { Seo } from '../components/Seo';
+import { PageBreadcrumb } from '../components/PageBreadcrumb';
+import { buildGraph, organizationNode, breadcrumbNode, serviceNode } from '../lib/schema';
 import {
   ArrowRight,
   Heart,
@@ -24,7 +27,7 @@ import {
   CreditCard,
 } from 'lucide-react';
 const heroPortrait =
-  'https://res.cloudinary.com/dzq2acoyj/image/upload/v1784577059/ChatGPT_Image_Jul_21_2026_01_20_43_AM_r23a5q.png';
+  'https://res.cloudinary.com/dzq2acoyj/image/upload/f_auto,q_auto,w_1920/v1784577059/ChatGPT_Image_Jul_21_2026_01_20_43_AM_r23a5q.png';
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -74,9 +77,41 @@ const offerings = [
   { icon: TrendingUp, label: 'Equity & ETFs', sub: 'Direct market exposure' },
 ];
 
+const servicesJsonLd = buildGraph([
+  organizationNode,
+  breadcrumbNode([
+    { name: 'Home', path: '/' },
+    { name: 'Services', path: '/services' },
+  ]),
+  serviceNode({
+    name: 'Insurance Planning',
+    serviceType: 'Insurance Advisory',
+    description:
+      'Life, health, travel and personal accident insurance, plus business insurance, mediclaim and income protection, selected to ringfence your family and income.',
+  }),
+  serviceNode({
+    name: 'Wealth Creation & Investing',
+    serviceType: 'Investment Advisory',
+    description:
+      'Mutual funds, equity & ETFs, bonds & FDs, PMS and demat account guidance structured around a single, coherent wealth strategy.',
+  }),
+  serviceNode({
+    name: 'Retirement & Legacy Planning',
+    serviceType: 'Retirement Planning',
+    description:
+      "Retirement, children's future, inheritance, NPS and loan-against-security planning built for long-term, multi-generational security.",
+  }),
+]);
+
 export default function Services() {
   return (
     <div className="bg-white overflow-x-hidden">
+      <Seo
+        title="Wealth, Insurance & Retirement Services | Suman Manjrekar"
+        description="Insurance, mutual funds, retirement and legacy planning services from Suman Manjrekar, Personal CFO to high-income professionals and doctors in India."
+        path="/services"
+        jsonLd={servicesJsonLd}
+      />
       <Header />
 
       {/* HERO , bottom-text editorial overlay */}
@@ -84,7 +119,9 @@ export default function Services() {
         {/* Anchored below fixed header + object-top so her head isn't cropped */}
         <img
           src={heroPortrait}
-          alt="Suman Manjrekar"
+          alt="Suman Manjrekar, Personal CFO — insurance, investment and retirement services"
+          fetchPriority="high"
+          decoding="async"
           className="absolute left-0 right-0 bottom-0 top-16 md:top-[4.5rem] w-full object-cover object-[80%_12%] sm:object-[72%_10%]"
         />
         <div
@@ -146,6 +183,8 @@ export default function Services() {
           </div>
         </div>
       </section>
+
+      <PageBreadcrumb page="Services" />
 
       <section className="px-5 sm:px-6 md:px-10 py-20 md:py-28">
         <div className="max-w-7xl mx-auto">

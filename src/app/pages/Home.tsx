@@ -1,11 +1,13 @@
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { Button } from '../components/Button';
+import { Seo } from '../components/Seo';
 import { ArrowRight, ArrowUpRight, ArrowLeft, Star, Shield, TrendingUp, Compass } from 'lucide-react';
 import { motion } from 'motion/react';
 import { CountUp } from '../components/CountUp';
+import { buildGraph, organizationNode, personNode, websiteNode } from '../lib/schema';
 
-import heroPortrait from '../../imports/hero_gpt.png';
+import heroPortrait from '../../imports/hero_gpt.webp';
 import carousel1 from '../../imports/carousel-optimized/DSCF9246.jpg';
 import carousel2 from '../../imports/carousel-optimized/DSCF9287.jpg';
 import carousel3 from '../../imports/carousel-optimized/DSCF9295.jpg';
@@ -19,18 +21,18 @@ import ebook2 from '../../imports/ebook_2.jpeg';
 
 const aboutCarouselImages = [
   carousel1,
-  'https://res.cloudinary.com/dsvgadc5d/image/upload/v1785131584/side_pose_light_jnqkii.jpg',
+  'https://res.cloudinary.com/dsvgadc5d/image/upload/f_auto,q_auto,w_1000/v1785131584/side_pose_light_jnqkii.jpg',
   carousel2,
-  'https://res.cloudinary.com/dsvgadc5d/image/upload/v1785131574/mobile_g0nboq.jpg',
+  'https://res.cloudinary.com/dsvgadc5d/image/upload/f_auto,q_auto,w_1000/v1785131574/mobile_g0nboq.jpg',
   carousel3,
-  'https://res.cloudinary.com/dsvgadc5d/image/upload/v1785131571/greem_suit_kjr3xr.jpg',
+  'https://res.cloudinary.com/dsvgadc5d/image/upload/f_auto,q_auto,w_1000/v1785131571/greem_suit_kjr3xr.jpg',
   carousel4,
-  'https://res.cloudinary.com/dsvgadc5d/image/upload/v1785131580/side_no_smile_tcbcqr.jpg',
+  'https://res.cloudinary.com/dsvgadc5d/image/upload/f_auto,q_auto,w_1000/v1785131580/side_no_smile_tcbcqr.jpg',
   carousel5,
-  'https://res.cloudinary.com/dsvgadc5d/image/upload/v1785131578/standing_cross_hands_u9jk0i.jpg',
+  'https://res.cloudinary.com/dsvgadc5d/image/upload/f_auto,q_auto,w_1000/v1785131578/standing_cross_hands_u9jk0i.jpg',
   carousel6,
-  'https://res.cloudinary.com/dsvgadc5d/image/upload/v1785131573/genn_suit_cross_legs_v2gjtd.jpg',
-  'https://res.cloudinary.com/dsvgadc5d/image/upload/v1785131578/sitting_powe_pose_f7sfl6.jpg',
+  'https://res.cloudinary.com/dsvgadc5d/image/upload/f_auto,q_auto,w_1000/v1785131573/genn_suit_cross_legs_v2gjtd.jpg',
+  'https://res.cloudinary.com/dsvgadc5d/image/upload/f_auto,q_auto,w_1000/v1785131578/sitting_powe_pose_f7sfl6.jpg',
 ];
 
 const fadeUp = {
@@ -98,9 +100,17 @@ const testimonials = [
   },
 ];
 
+const homeJsonLd = buildGraph([organizationNode, personNode, websiteNode()]);
+
 export default function Home() {
   return (
     <div className="bg-white overflow-x-hidden">
+      <Seo
+        title="Suman Manjrekar | Personal CFO & Wealth Coach in India"
+        description="Personal CFO and Wealth Coach for high-income professionals and doctors. IRDA & AMFI certified, 19+ years' experience building protected, compounding wealth."
+        path="/"
+        jsonLd={homeJsonLd}
+      />
       <Header />
 
       {/* HERO , bottom-text editorial overlay */}
@@ -108,7 +118,9 @@ export default function Home() {
         {/* Anchored below fixed header + object-top so her head isn't cropped */}
         <img
           src={heroPortrait}
-          alt="Suman Manjrekar"
+          alt="Suman Manjrekar, Personal CFO and Wealth Coach"
+          fetchPriority="high"
+          decoding="async"
           className="absolute left-0 right-0 bottom-0 top-16 md:top-[4.5rem] w-full object-cover object-[75%_0%] sm:object-[center_0%]"
         />
         <div
@@ -247,7 +259,9 @@ export default function Home() {
             <div className="relative aspect-video w-full">
               <img
                 src={heroPortrait}
-                alt="Suman Manjrekar"
+                alt="Suman Manjrekar, Personal CFO and Wealth Coach — video introduction"
+                loading="lazy"
+                decoding="async"
                 className="absolute inset-0 w-full h-full object-cover object-[75%_20%] sm:object-[center_20%] opacity-90"
               />
               <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/10 to-transparent" />
@@ -741,7 +755,7 @@ function AboutCarousel() {
                 {isNear ? (
                   <img
                     src={src}
-                    alt={`Suman Manjrekar ${displayIndex + 1}`}
+                    alt={`Suman Manjrekar, Personal CFO and Wealth Coach — portrait ${displayIndex + 1} of ${total}`}
                     draggable={false}
                     decoding="async"
                     loading={i === 1 ? 'eager' : 'lazy'}
