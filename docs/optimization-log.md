@@ -65,11 +65,33 @@ Implemented together as one pass rather than strictly sequential phases, per ins
 - **Visual/layout check**: screenshotted About and Contact at realistic viewport sizes (1440×900/1600) after adding breadcrumbs and new headings — no visual regression, breadcrumb sits cleanly below the existing full-bleed hero, new Contact "Contact Information" heading matches the site's existing eyebrow-label style.
 - **Schema validation**: checked JSON-LD is well-formed and matches schema.org vocabulary for each type used. **Not yet run through Google's actual Rich Results Test** — that requires a public URL, which doesn't exist until this deploys. Do this as the first post-deploy check.
 
+## Phase 1e: AI visibility layer
+
+Commit: `Add FAQ sections to Home, About, Services and Contact`
+
+### Decisions confirmed before execution
+- **FAQ content**: drafted candidates grounded only in facts already published elsewhere on the site, for approval before writing. Approved with one edit: "high-income professionals" → "working professionals" in the new FAQ copy (existing hero/section copy elsewhere was left untouched — that edit wasn't asked for and wasn't made).
+- **Question-based headings**: existing section headlines ("Three jobs of money. One plan.", etc.) are stylistic brand copy — left exactly as-is. Added supplementary question-framed `<h3>`s instead (the new FAQ questions), rather than rewriting approved copy.
+
+### What shipped
+- FAQ sections added to Home, About, Services and Contact (Masterclass already had one) — 5 Q&A pairs each (4 on Contact), all traceable to existing stats/credentials/process copy elsewhere on the site.
+- Extracted a shared `FAQItem` component (`src/app/components/FAQItem.tsx`), used by all 5 pages now — Masterclass's local duplicate was removed.
+- Each question is now wrapped `<h3><button>...</button></h3>` (WAI-ARIA accordion pattern) instead of the previous `<button><span>...</span></button>`, so the question reads as a real heading to crawlers and screen readers. The `<h3>` explicitly resets the site's global heading font/weight/tracking back to body-text styles so it's pixel-identical to what it replaced — verified via screenshot (cropped from a full-page capture, since the 100svh hero sections make single-viewport screenshots unreliable for anything below the fold).
+- `FAQPage` JSON-LD on Home/About/Services/Contact is built from the exact same array feeding the visible accordion, so schema and on-page content can't drift apart. Verified valid on all 4 in the prerendered build output.
+
+### Already satisfied, no action taken
+- **Definition-style opening paragraphs**: Home/Services hero subheads are already extractable, definitional sentences ("I work as your Personal CFO, building bulletproof wealth systems for..."). This is existing body copy, not touched.
+- **Author bio page with headshot, credentials, sameAs**: About page already has all three (portrait image, credentials list, and `Person` schema with `hasCredential` + `sameAs` added in the previous phase).
+
+### Not applicable
+- **"Reviewed by" / "written by" bylines, published/updated dates on blog posts**: the site has no blog or dated-article content type. Nothing to add. Revisit if a blog/resources section gets built.
+
 ## Still open / needs your input
 
-1. Confirm `successwithsuman.com` is the real production domain (used throughout canonical URLs, sitemap, schema).
+1. Confirm `successwithsuman.com` is the real production domain (used throughout canonical URLs, sitemap, schema, and `llms.txt`).
 2. Confirm which hosting platform is actually live (Vercel/Netlify/Apache configs were all present before this work; all three now carry equivalent security headers so it shouldn't matter, but worth cleaning up the unused ones eventually).
 3. Once deployed: run the actual Google Rich Results Test and Search Console URL Inspection against the live site.
-4. `llms.txt` — send the format and I'll add it.
-5. Trustpilot review count, if you want `AggregateRating` schema added.
-6. Video testimonial transcripts, if you want them captioned/transcribed for accessibility and AI-extractability.
+4. Trustpilot review count, if you want `AggregateRating` schema added.
+5. Video testimonial transcripts, if you want them captioned/transcribed for accessibility and AI-extractability.
+
+`llms.txt` shipped (`public/llms.txt`) — added in a separate request using the format you provided.
