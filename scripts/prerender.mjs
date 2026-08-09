@@ -9,10 +9,40 @@ import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import puppeteer from 'puppeteer';
+import puppeteer from 'puppeteer-core';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const distDir = path.join(__dirname, '..', 'dist');
+
+// Prefer a locally installed Chrome (fast, no extra download) and only pull
+// in @sparticuz/chromium — a Chromium build with its shared libraries
+// statically bundled — when none is found. This is what Vercel's build
+// image needs: it has no system Chrome and is missing libnspr4/libnss3/etc,
+// which makes a normal `puppeteer`-downloaded Chrome fail to launch there.
+async function resolveLaunchOptions() {
+  const candidates = [
+    process.env.PUPPETEER_EXECUTABLE_PATH,
+    'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+    'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
+    '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+    '/usr/bin/google-chrome-stable',
+    '/usr/bin/google-chrome',
+    '/usr/bin/chromium-browser',
+    '/usr/bin/chromium',
+  ].filter(Boolean);
+
+  const localChrome = candidates.find((p) => fs.existsSync(p));
+  if (localChrome) {
+    return { executablePath: localChrome, headless: true, args: ['--no-sandbox'] };
+  }
+
+  const chromium = (await import('@sparticuz/chromium')).default;
+  return {
+    executablePath: await chromium.executablePath(),
+    headless: 'shell',
+    args: await puppeteer.defaultArgs({ args: chromium.args, headless: 'shell' }),
+  };
+}
 
 const routes = ['/', '/about', '/services', '/masterclass', '/contact'];
 
@@ -66,22 +96,43 @@ async function run() {
 
   const server = await startServer();
   const port = server.address().port;
-  const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox'] });
+
+  // Prerendering is an enhancement, not a requirement — dist/ already holds
+  // a working SPA build at this point. If no browser can be launched at all
+  // (a hosting platform's build image changes, a dependency breaks, etc.),
+  // log it clearly and ship the plain SPA build rather than failing the
+  // entire deployment, which is what happened before this fallback existed.
+  let browser;
+  try {
+    const launchOptions = await resolveLaunchOptions();
+    console.log(`  using browser: ${launchOptions.executablePath}`);
+    browser = await puppeteer.launch(launchOptions);
+  } catch (err) {
+    console.warn('  ! Could not launch a browser for prerendering, shipping the plain SPA build instead.');
+    console.warn(`  ! ${err.message}`);
+    server.close();
+    return;
+  }
 
   try {
     for (const route of routes) {
-      const page = await browser.newPage();
-      await page.goto(`http://127.0.0.1:${port}${route}`, { waitUntil: 'networkidle0', timeout: 30000 });
-      await page.waitForSelector('script[data-seo-jsonld]', { timeout: 10000 }).catch(() => {
-        console.warn(`  ! ${route}: JSON-LD marker never appeared, saving current HTML anyway`);
-      });
-      const html = await page.content();
-      await page.close();
+      try {
+        const page = await browser.newPage();
+        await page.goto(`http://127.0.0.1:${port}${route}`, { waitUntil: 'networkidle0', timeout: 30000 });
+        await page.waitForSelector('script[data-seo-jsonld]', { timeout: 10000 }).catch(() => {
+          console.warn(`  ! ${route}: JSON-LD marker never appeared, saving current HTML anyway`);
+        });
+        const html = await page.content();
+        await page.close();
 
-      const outDir = route === '/' ? distDir : path.join(distDir, route);
-      fs.mkdirSync(outDir, { recursive: true });
-      fs.writeFileSync(path.join(outDir, 'index.html'), html);
-      console.log(`  ✓ prerendered ${route}`);
+        const outDir = route === '/' ? distDir : path.join(distDir, route);
+        fs.mkdirSync(outDir, { recursive: true });
+        fs.writeFileSync(path.join(outDir, 'index.html'), html);
+        console.log(`  ✓ prerendered ${route}`);
+      } catch (err) {
+        console.warn(`  ! Failed to prerender ${route}, leaving the plain SPA shell for this route.`);
+        console.warn(`  ! ${err.message}`);
+      }
     }
   } finally {
     await browser.close();
@@ -90,6 +141,9 @@ async function run() {
 }
 
 run().catch((err) => {
-  console.error(err);
-  process.exit(1);
+  // Should be unreachable (browser launch and per-route errors are already
+  // caught above) but if something else goes wrong, don't take the whole
+  // deployment down over a prerendering bug.
+  console.warn('  ! Prerendering step failed unexpectedly, shipping the plain SPA build instead.');
+  console.warn(err);
 });
