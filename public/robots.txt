@@ -1,4 +1,4 @@
-# Success With Suman — successwithsuman.com
+# Success With Suman — sumanmanjrekar.com
 # Traditional search engines
 User-agent: Googlebot
 Allow: /
@@ -40,4 +40,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://successwithsuman.com/sitemap.xml
+Sitemap: https://sumanmanjrekar.com/sitemap.xml
