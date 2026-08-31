@@ -44,7 +44,18 @@ async function resolveLaunchOptions() {
   };
 }
 
-const routes = ['/', '/about', '/services', '/masterclass', '/contact'];
+const routes = [
+  '/',
+  '/about',
+  '/services',
+  '/masterclass',
+  '/contact',
+  '/privacy-policy',
+  '/cancellation-refund-policy',
+  '/disclosure',
+  '/earnings-disclaimer',
+  '/terms-of-service',
+];
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',

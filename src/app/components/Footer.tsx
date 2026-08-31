@@ -37,9 +37,18 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between gap-4 text-white/50 text-sm">
-          <p>© 2026 Success with Suman. All rights reserved.</p>
-          <p className="font-mono">Built on clarity. Designed for legacy.</p>
+        <div className="pt-8 border-t border-white/10 flex flex-col gap-6">
+          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+            <Link to="/privacy-policy" className="text-white/60 hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="text-white/60 hover:text-white transition-colors">Terms of Service</Link>
+            <Link to="/cancellation-refund-policy" className="text-white/60 hover:text-white transition-colors">Cancellation & Refund</Link>
+            <Link to="/disclosure" className="text-white/60 hover:text-white transition-colors">Disclosure</Link>
+            <Link to="/earnings-disclaimer" className="text-white/60 hover:text-white transition-colors">Earnings Disclaimer</Link>
+          </div>
+          <div className="flex flex-col md:flex-row justify-between gap-4 text-white/50 text-sm">
+            <p>© 2026 Success with Suman. All rights reserved.</p>
+            <p className="font-mono">Built on clarity. Designed for legacy.</p>
+          </div>
         </div>
       </div>
     </footer>
