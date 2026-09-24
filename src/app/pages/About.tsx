@@ -100,7 +100,7 @@ export default function About() {
   return (
     <div className="bg-white overflow-x-hidden">
       <Seo
-        title="About Suman Manjrekar | Personal CFO, Coach & Author"
+        title="About Suman Manjrekar | Wealth Coach & Author"
         description="Meet Suman Manjrekar: IRDA & AMFI certified wealth coach, Amazon bestselling author of 'I Will Never Die', and creator of the MMH wealth framework."
         path="/about"
         jsonLd={aboutJsonLd}
@@ -112,7 +112,7 @@ export default function About() {
         {/* Mobile: header clearance + subject crop. Desktop: previous scaled framing preserved */}
         <img
           src={heroPortrait}
-          alt="Suman Manjrekar, Personal CFO, Wealth Coach and author"
+          alt="Suman Manjrekar, Wealth Coach and author"
           fetchPriority="high"
           decoding="async"
           className="absolute left-0 right-0 bottom-0 top-16 w-full object-cover object-[80%_18%] sm:inset-0 sm:top-0 sm:object-[65%_35%] sm:scale-[1.25] sm:origin-[65%_38%]"
@@ -146,8 +146,8 @@ export default function About() {
               className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tighter leading-[1.05] sm:leading-[1]"
               style={{ color: '#0F0B2E' }}
             >
-              Personal CFO.<br />
               Wealth Coach.<br />
+              Speaker.<br />
               <span style={{ color: '#770a7d' }} className="italic">Author.</span>
             </motion.h1>
             <motion.p
@@ -203,7 +203,7 @@ export default function About() {
               That is when MMH was born. <span className="text-violet">Money Management for the architecture, Mindset for the operating system, Healing for the wounds underneath.</span> Three pillars, working at once.
             </p>
             <p>
-              Today I work as a Personal CFO and Wealth Coach to high-income professionals, doctors and founders, with
+              Today I work as a Wealth Coach to high-income professionals, doctors and founders, with
               the same belief I started with: making money is the easy part. Keeping it, growing it, protecting it,
               that is where freedom lives.
             </p>
@@ -375,7 +375,7 @@ export default function About() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.18),transparent_60%)]" />
           <div className="relative">
             <h2 className="text-3xl sm:text-4xl md:text-6xl tracking-tighter leading-[1.05] max-w-3xl mx-auto text-white">
-              Want me as your Personal CFO?
+              Want me as your Wealth Coach?
             </h2>
             <p className="mt-6 text-base md:text-lg text-white/85 max-w-xl mx-auto">
               Book a private strategy call. Walk away with clarity, whether or not we work together.

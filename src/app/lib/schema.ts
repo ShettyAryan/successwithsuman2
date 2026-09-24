@@ -13,7 +13,7 @@ export const organizationNode = {
   logo: `${SITE_URL}/icon-512.png`,
   image: `${SITE_URL}/og-image.jpg`,
   description:
-    'Personal CFO and wealth coaching practice run by Suman Manjrekar, serving high-income professionals, doctors and NRIs across India with insurance, mutual fund and retirement planning support.',
+    'Wealth coaching practice run by Suman Manjrekar, serving high-income professionals, doctors and NRIs across India with insurance, mutual fund and retirement planning support.',
   email: 'connect@successwithsuman.com',
   telephone: '+91-91313-13128',
   areaServed: { '@type': 'Country', name: 'India' },
@@ -28,9 +28,9 @@ export const personNode = {
   '@id': `${SITE_URL}/about/#person`,
   name: 'Suman Manjrekar',
   url: `${SITE_URL}/about`,
-  jobTitle: 'Personal CFO & Wealth Coach',
+  jobTitle: 'Wealth Coach',
   description:
-    'Personal CFO and Wealth Coach to high-income professionals, doctors and founders. IRDA & AMFI certified, with 19+ years in financial services and 7,000+ hours of training.',
+    'Wealth Coach to high-income professionals, doctors and founders. IRDA & AMFI certified, with 19+ years in financial services and 7,000+ hours of training.',
   worksFor: { '@id': `${SITE_URL}/#organization` },
   award: 'Top 100 Speakers of India',
   hasCredential: [

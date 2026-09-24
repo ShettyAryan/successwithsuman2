@@ -133,7 +133,7 @@ export default function Services() {
     <div className="bg-white overflow-x-hidden">
       <Seo
         title="Wealth, Insurance & Retirement Services | Suman Manjrekar"
-        description="Insurance, mutual funds, retirement and legacy planning services from Suman Manjrekar, Personal CFO to high-income professionals and doctors in India."
+        description="Insurance, mutual funds, retirement and legacy planning services from Suman Manjrekar, Wealth Coach to high-income professionals and doctors in India."
         path="/services"
         jsonLd={servicesJsonLd}
       />
@@ -144,7 +144,7 @@ export default function Services() {
         {/* Anchored below fixed header + object-top so her head isn't cropped */}
         <img
           src={heroPortrait}
-          alt="Suman Manjrekar, Personal CFO — insurance, investment and retirement services"
+          alt="Suman Manjrekar, Wealth Coach — insurance, investment and retirement services"
           fetchPriority="high"
           decoding="async"
           className="absolute left-0 right-0 bottom-0 top-16 md:top-[4.5rem] w-full object-cover object-[80%_12%] sm:object-[72%_10%]"
@@ -189,7 +189,7 @@ export default function Services() {
               className="mt-6 sm:mt-10 text-sm sm:text-base md:text-xl leading-relaxed max-w-2xl"
               style={{ color: '#4A4566' }}
             >
-              A complete personal CFO offering, from protection to wealth creation, structured around your
+              A complete wealth coaching offering, from protection to wealth creation, structured around your
               life stage and long-term goals.
             </motion.p>
             <motion.div

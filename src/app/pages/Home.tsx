@@ -65,8 +65,8 @@ const pillars = [
   },
   {
     n: '02',
-    title: 'Personal CFO approach',
-    body: 'I track inflows, optimise allocations, and decide like a CFO would for a business.',
+    title: 'Hands-on wealth approach',
+    body: 'I track inflows, optimise allocations, and make decisions the way a well-run business would.',
   },
   {
     n: '03',
@@ -107,8 +107,8 @@ const homeFaqs = [
     a: 'Working professionals and doctors who want their earnings to grow into lasting, protected wealth rather than staying as unstructured income.',
   },
   {
-    q: 'What does a Personal CFO do?',
-    a: 'Suman works as a Personal CFO, tracking inflows, optimising allocations and architecting systems that protect, multiply and outlive your earnings.',
+    q: 'What does a Wealth Coach do?',
+    a: 'Suman works as a Wealth Coach, tracking inflows, optimising allocations and architecting systems that protect, multiply and outlive your earnings.',
   },
   {
     q: 'What areas does she cover?',
@@ -130,8 +130,8 @@ export default function Home() {
   return (
     <div className="bg-white overflow-x-hidden">
       <Seo
-        title="Suman Manjrekar | Personal CFO & Wealth Coach in India"
-        description="Personal CFO and Wealth Coach for high-income professionals and doctors. IRDA & AMFI certified, 19+ years' experience building protected, compounding wealth."
+        title="Suman Manjrekar | Wealth Coach in India"
+        description="Wealth Coach for high-income professionals and doctors. IRDA & AMFI certified, 19+ years' experience building protected, compounding wealth."
         path="/"
         jsonLd={homeJsonLd}
       />
@@ -142,7 +142,7 @@ export default function Home() {
         {/* Anchored below fixed header + object-top so her head isn't cropped */}
         <img
           src={heroPortrait}
-          alt="Suman Manjrekar, Personal CFO and Wealth Coach"
+          alt="Suman Manjrekar, Wealth Coach"
           fetchPriority="high"
           decoding="async"
           className="absolute left-0 right-0 bottom-0 top-16 md:top-[4.5rem] w-full object-cover object-[75%_0%] sm:object-[center_0%]"
@@ -166,7 +166,7 @@ export default function Home() {
           >
             <div className="flex items-center gap-3">
               <span className="w-8 sm:w-10 h-px" style={{ background: 'rgba(15,11,46,0.5)' }} />
-              Personal CFO · Wealth Coach
+              Wealth Coach
             </div>
             
           </motion.div>
@@ -191,7 +191,7 @@ export default function Home() {
               className="mt-6 sm:mt-10 text-sm sm:text-base md:text-xl leading-relaxed max-w-2xl"
               style={{ color: '#4A4566' }}
             >
-              I work as your Personal CFO, building bulletproof wealth systems for high-income
+              I work as your Wealth Coach, building bulletproof wealth systems for high-income
               professionals and doctors, designed to protect, multiply and outlive your earnings.
             </motion.p>
 
@@ -283,7 +283,7 @@ export default function Home() {
             <div className="relative aspect-video w-full">
               <img
                 src={heroPortrait}
-                alt="Suman Manjrekar, Personal CFO and Wealth Coach — video introduction"
+                alt="Suman Manjrekar, Wealth Coach — video introduction"
                 loading="lazy"
                 decoding="async"
                 className="absolute inset-0 w-full h-full object-cover object-[75%_20%] sm:object-[center_20%] opacity-90"
@@ -460,7 +460,7 @@ export default function Home() {
                 make their wealth grow at the same pace. That is where I step in.
               </p>
               <p>
-                I work like your <span className="text-ink">Personal CFO and Wealth Coach</span> ,
+                I work as your <span className="text-ink">Wealth Coach</span>,
                 tracking inflows, optimising allocations, and architecting bulletproof systems
                 that protect, multiply and outlive you.
               </p>
@@ -798,7 +798,7 @@ function AboutCarousel() {
                 {isNear ? (
                   <img
                     src={src}
-                    alt={`Suman Manjrekar, Personal CFO and Wealth Coach — portrait ${displayIndex + 1} of ${total}`}
+                    alt={`Suman Manjrekar, Wealth Coach — portrait ${displayIndex + 1} of ${total}`}
                     draggable={false}
                     decoding="async"
                     loading={i === 1 ? 'eager' : 'lazy'}

@@ -82,7 +82,7 @@ export default function Contact() {
         {/* Mobile: header clearance + subject crop. Desktop: previous framing preserved */}
         <img
           src={heroPortrait}
-          alt="Suman Manjrekar, Personal CFO — contact and strategy call booking"
+          alt="Suman Manjrekar, Wealth Coach — contact and strategy call booking"
           fetchPriority="high"
           decoding="async"
           className="absolute left-0 right-0 bottom-0 top-16 w-full object-cover object-[82%_16%] sm:top-0 sm:bottom-auto sm:h-[118%] sm:object-[72%_28%] sm:-translate-y-[10%]"

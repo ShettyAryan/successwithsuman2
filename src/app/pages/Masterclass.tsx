@@ -44,7 +44,7 @@ const services = [
     icon: Compass,
     title: 'Financial Planning',
     tag: 'Direct',
-    body: 'Your full financial picture in one map: income, expenses, taxes, goals, risks. The CFO view of your life.',
+    body: 'Your full financial picture in one map: income, expenses, taxes, goals, risks. A complete view of your financial life.',
     points: ['Cash flow architecture', 'Goal-based roadmap', 'Annual strategy reviews'],
   },
   {
@@ -660,12 +660,12 @@ export default function Masterclass() {
               <div className="font-mono text-xs tracking-widest text-white/50 uppercase mb-2">Private Advisory</div>
               <h3 className="text-3xl tracking-tighter mb-4 text-white">Work 1-2-1 with Suman</h3>
               <p className="text-white/70 leading-relaxed mb-6">
-                For professionals who want a dedicated Personal CFO. Suman works directly with a limited number of clients each year, building fully bespoke MMH wealth plans, reviewing every rupee and every policy.
+                For professionals who want dedicated 1-2-1 wealth coaching. Suman works directly with a limited number of clients each year, building fully bespoke MMH wealth plans, reviewing every rupee and every policy.
               </p>
               <ul className="space-y-3 flex-1 border-t border-white/15 pt-6 mt-2 mb-8">
                 {[
                   'Fully custom MMH wealth blueprint',
-                  'Personal CFO, monthly deep dives',
+                  'Monthly deep-dive reviews',
                   'Insurance, MF, tax and succession',
                   'Priority WhatsApp access',
                   'Quarterly in-depth strategy reviews',
