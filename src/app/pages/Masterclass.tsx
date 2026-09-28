@@ -220,7 +220,7 @@ export default function Masterclass() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] sm:tracking-[0.3em] uppercase flex items-center gap-3"
+            className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] uppercase flex items-center gap-3"
             style={{ color: '#0F0B2E' }}
           >
             <span className="w-8 sm:w-10 h-px" style={{ background: 'rgba(15,11,46,0.5)' }} />
@@ -276,7 +276,7 @@ export default function Masterclass() {
       <section className="px-5 sm:px-6 md:px-10 py-16 md:py-24 bg-off-white">
         <div className="max-w-7xl mx-auto">
           <motion.div className="text-center mb-12" {...fadeUp}>
-            <div className="font-mono text-xs tracking-widest text-violet uppercase mb-4">Real Voices</div>
+            <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-violet uppercase mb-4">Real Voices</div>
             <h2 className="text-3xl sm:text-4xl md:text-6xl tracking-tighter leading-[1.05]">
               Don't take my word.<br /> Take <span className="text-violet">theirs</span>.
             </h2>
@@ -409,7 +409,7 @@ export default function Masterclass() {
       <section className="px-5 sm:px-6 md:px-10 py-16 md:py-24">
         <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10">
           <motion.div className="md:col-span-5" {...fadeUp}>
-            <div className="font-mono text-xs tracking-widest text-violet uppercase mb-4">The Real Problem</div>
+            <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-violet uppercase mb-4">The Real Problem</div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl tracking-tighter leading-tight">
               Earning more is not the same as <span className="text-violet">building wealth</span>.
             </h2>
@@ -437,7 +437,7 @@ export default function Masterclass() {
       <section className="px-5 sm:px-6 md:px-10 py-16 md:py-24">
         <div className="max-w-7xl mx-auto">
           <motion.div className="text-center mb-16" {...fadeUp}>
-            <div className="font-mono text-xs tracking-widest text-violet uppercase mb-4">The Signature System</div>
+            <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-violet uppercase mb-4">The Signature System</div>
             <h2 className="text-4xl sm:text-5xl md:text-6xl tracking-tighter leading-[1.05]">
               The <span className="text-violet">MMH</span> Formula
             </h2>
@@ -480,7 +480,7 @@ export default function Masterclass() {
       <section className="px-5 sm:px-6 md:px-10 py-16 md:py-24">
         <div className="max-w-7xl mx-auto">
           <motion.div className="mb-14" {...fadeUp}>
-            <div className="font-mono text-xs tracking-widest text-violet uppercase mb-4">The Four Pillars</div>
+            <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-violet uppercase mb-4">The Four Pillars</div>
             <h2 className="text-3xl sm:text-4xl md:text-6xl tracking-tighter leading-[1.05]">What I help you with.</h2>
           </motion.div>
           <div className="grid md:grid-cols-2 gap-6">
@@ -520,7 +520,7 @@ export default function Masterclass() {
       <section className="px-5 sm:px-6 md:px-10 py-16 md:py-24 bg-off-white">
         <div className="max-w-7xl mx-auto">
           <motion.div className="mb-14" {...fadeUp}>
-            <div className="font-mono text-xs tracking-widest text-violet uppercase mb-4">How We Work</div>
+            <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-violet uppercase mb-4">How We Work</div>
             <h2 className="text-3xl sm:text-4xl md:text-6xl tracking-tighter leading-[1.05]">A four-step path<br />from chaos to clarity.</h2>
           </motion.div>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-5">
@@ -547,7 +547,7 @@ export default function Masterclass() {
       <section className="px-5 sm:px-6 md:px-10 py-16 md:py-24">
         <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 items-center">
           <motion.div className="md:col-span-5" {...fadeUp}>
-            <div className="font-mono text-xs tracking-widest text-violet uppercase mb-4">The Proof</div>
+            <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-violet uppercase mb-4">The Proof</div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl tracking-tighter leading-tight">
               19+ years.<br />2,095+ professionals.<br /><span className="text-violet">One quiet system.</span>
             </h2>
@@ -561,7 +561,7 @@ export default function Masterclass() {
               { to: 2095, suffix: '+', separator: true, l: 'Professionals guided' },
               { to: 7000, suffix: '+', separator: true, l: 'Hours of training' },
               { to: 19, suffix: '+', l: 'Years of experience' },
-              { to: 4.4, decimals: 1, suffix: '★', l: 'Trustpilot rating' },
+              { to: 4.8, decimals: 1, suffix: '★', l: 'Trustpilot rating' },
             ].map((s, i) => (
               <motion.div
                 key={s.l}
@@ -590,7 +590,7 @@ export default function Masterclass() {
       <section className="px-5 sm:px-6 md:px-10 py-16 md:py-24 bg-off-white">
         <div className="max-w-4xl mx-auto">
           <motion.div className="text-center mb-14" {...fadeUp}>
-            <div className="font-mono text-xs tracking-widest text-violet uppercase mb-4">FAQ</div>
+            <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-violet uppercase mb-4">FAQ</div>
             <h2 className="text-3xl sm:text-4xl md:text-6xl tracking-tighter leading-[1.05]">Questions, answered.</h2>
           </motion.div>
           <div className="space-y-3">
@@ -603,7 +603,7 @@ export default function Masterclass() {
       <section className="px-5 sm:px-6 md:px-10 py-16 md:py-24 bg-off-white">
         <div className="max-w-7xl mx-auto">
           <motion.div className="text-center mb-12 md:mb-16" {...fadeUp}>
-            <div className="font-mono text-xs tracking-widest text-violet uppercase mb-4">Community</div>
+            <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-violet uppercase mb-4">Community</div>
             <h2 className="text-3xl sm:text-4xl md:text-6xl tracking-tighter leading-[1.05]">
               Become a part of <span className="text-violet">Infinite Wealth Hub</span>.
             </h2>
@@ -622,8 +622,8 @@ export default function Masterclass() {
               whileHover={{ y: -6 }}
               className="relative p-8 sm:p-10 rounded-3xl border border-violet bg-violet text-white flex flex-col"
             >
-              <div className="font-mono text-xs tracking-widest text-white/70 uppercase mb-2">Community Access</div>
-              <h3 className="text-3xl tracking-tighter mb-4">Infinite Wealth Hub</h3>
+              <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-white/70 uppercase mb-2">Community Access</div>
+              <h3 className="text-3xl tracking-tighter mb-4 text-white">Infinite Wealth Hub</h3>
               <ul className="space-y-3 flex-1 border-t border-white/20 pt-6 mt-2 mb-8">
                 {[
                   'Live group sessions with Suman',
@@ -657,10 +657,10 @@ export default function Masterclass() {
               whileHover={{ y: -6 }}
               className="relative p-8 sm:p-10 rounded-3xl border border-ink bg-ink text-white flex flex-col"
             >
-              <div className="font-mono text-xs tracking-widest text-white/50 uppercase mb-2">Private Advisory</div>
+              <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-white/50 uppercase mb-2">Private Advisory</div>
               <h3 className="text-3xl tracking-tighter mb-4 text-white">Work 1-2-1 with Suman</h3>
               <p className="text-white/70 leading-relaxed mb-6">
-                For professionals who want dedicated 1-2-1 wealth coaching. Suman works directly with a limited number of clients each year, building fully bespoke MMH wealth plans, reviewing every rupee and every policy.
+                For professionals who want a dedicated Wealth Strategist. Suman works directly with a limited number of clients each year, building fully bespoke MMH wealth plans, reviewing every rupee and every policy.
               </p>
               <ul className="space-y-3 flex-1 border-t border-white/15 pt-6 mt-2 mb-8">
                 {[
@@ -697,7 +697,7 @@ export default function Masterclass() {
         >
           <div className="absolute -bottom-32 -right-32 w-[28rem] h-[28rem] bg-violet/40 rounded-full blur-3xl" />
           <div className="md:col-span-8 relative">
-            <div className="font-mono text-xs tracking-widest text-violet-soft uppercase mb-4">Ready When You Are</div>
+            <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-violet-soft uppercase mb-4">Ready When You Are</div>
             <h2 className="text-3xl sm:text-4xl md:text-6xl tracking-tighter leading-[1.05] text-white">
               Let's architect your wealth, <span className="text-violet-soft">on purpose</span>.
             </h2>
@@ -827,7 +827,7 @@ function WhatsAppTestimonialsCarousel() {
               <div className="aspect-[3/4] rounded-2xl overflow-hidden border border-violet-line shadow-sm bg-[#f5c4b5]">
                 <img
                   src={src}
-                  alt={`WhatsApp testimonial from a client of Suman Manjrekar's MMH wealth coaching, message ${(i % total) + 1}`}
+                  alt={`WhatsApp testimonial from a client of Suman Manjrekar's MMH wealth strategy, message ${(i % total) + 1}`}
                   draggable={false}
                   loading="lazy"
                   decoding="async"

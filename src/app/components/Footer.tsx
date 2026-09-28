@@ -13,7 +13,7 @@ export function Footer() {
               Success with Suman
             </div>
             <p className="text-white/65 leading-relaxed max-w-md">
-              Wealth Coach helping high-income professionals turn earnings into lasting,
+              Wealth Strategist helping high-income professionals turn earnings into lasting,
               protected, multi-generational wealth.
             </p>
           </div>

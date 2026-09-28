@@ -67,7 +67,7 @@ export function LegalPageLayout({
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-ink-mute flex items-center gap-3 mb-4">
+              <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] uppercase text-ink-mute flex items-center gap-3 mb-4">
                 <span className="w-8 h-px bg-violet/40" />
                 Legal
               </div>

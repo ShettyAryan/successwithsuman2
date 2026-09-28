@@ -51,7 +51,7 @@ const stats = [
 ];
 
 const pains = [
-  { n: '01', t: 'Your salary stops when you do, does your wealth?' },
+  { n: '01', t: 'Your salary stops when you do, so does your wealth?' },
   { n: '02', t: 'Policies you own but cannot explain' },
   { n: '03', t: 'No protection plan if something goes wrong tomorrow' },
   { n: '04', t: 'Investing that feels like guesswork, not a system' },
@@ -104,11 +104,11 @@ const testimonials = [
 const homeFaqs = [
   {
     q: 'Who does Suman Manjrekar work with?',
-    a: 'Working professionals and doctors who want their earnings to grow into lasting, protected wealth rather than staying as unstructured income.',
+    a: 'Young Professionals, Young Parents, Working professionals and doctors who want their earnings to grow into lasting, protected wealth rather than staying as unstructured income.',
   },
   {
-    q: 'What does a Wealth Coach do?',
-    a: 'Suman works as a Wealth Coach, tracking inflows, optimising allocations and architecting systems that protect, multiply and outlive your earnings.',
+    q: 'What does a Wealth Strategist do?',
+    a: 'Suman works as a Wealth Strategist, tracking inflows, optimising allocations and architecting systems that protect, multiply and outlive your earnings.',
   },
   {
     q: 'What areas does she cover?',
@@ -130,8 +130,8 @@ export default function Home() {
   return (
     <div className="bg-white overflow-x-hidden">
       <Seo
-        title="Suman Manjrekar | Wealth Coach in India"
-        description="Wealth Coach for high-income professionals and doctors. IRDA & AMFI certified, 19+ years' experience building protected, compounding wealth."
+        title="Suman Manjrekar | Wealth Strategist in India"
+        description="Wealth Strategist for high-income professionals and doctors. IRDA & AMFI certified, 19+ years' experience building protected, compounding wealth."
         path="/"
         jsonLd={homeJsonLd}
       />
@@ -142,7 +142,7 @@ export default function Home() {
         {/* Anchored below fixed header + object-top so her head isn't cropped */}
         <img
           src={heroPortrait}
-          alt="Suman Manjrekar, Wealth Coach"
+          alt="Suman Manjrekar, Wealth Strategist"
           fetchPriority="high"
           decoding="async"
           className="absolute left-0 right-0 bottom-0 top-16 md:top-[4.5rem] w-full object-cover object-[75%_0%] sm:object-[center_0%]"
@@ -161,12 +161,12 @@ export default function Home() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex flex-wrap items-center justify-between gap-4 font-mono text-[10px] sm:text-[11px] tracking-[0.25em] sm:tracking-[0.3em] uppercase"
+            className="flex flex-wrap items-center justify-between gap-4 font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] uppercase"
             style={{ color: '#0F0B2E' }}
           >
             <div className="flex items-center gap-3">
               <span className="w-8 sm:w-10 h-px" style={{ background: 'rgba(15,11,46,0.5)' }} />
-              Wealth Coach
+              Wealth Strategist
             </div>
             
           </motion.div>
@@ -191,7 +191,7 @@ export default function Home() {
               className="mt-6 sm:mt-10 text-sm sm:text-base md:text-xl leading-relaxed max-w-2xl"
               style={{ color: '#4A4566' }}
             >
-              I work as your Wealth Coach, building bulletproof wealth systems for high-income
+              I work as your Wealth Strategist, building bulletproof wealth systems for high-income
               professionals and doctors, designed to protect, multiply and outlive your earnings.
             </motion.p>
 
@@ -258,7 +258,7 @@ export default function Home() {
             transition={{ duration: 0.7 }}
             className="text-center max-w-3xl mx-auto mb-14 md:mb-20"
           >
-            <div className="font-mono text-[11px] tracking-[0.3em] text-violet uppercase mb-5 flex items-center justify-center gap-3">
+            <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-violet uppercase mb-5 flex items-center justify-center gap-3">
               <span className="w-10 h-px bg-violet" />
               Why Suman
               <span className="w-10 h-px bg-violet" />
@@ -283,7 +283,7 @@ export default function Home() {
             <div className="relative aspect-video w-full">
               <img
                 src={heroPortrait}
-                alt="Suman Manjrekar, Wealth Coach — video introduction"
+                alt="Suman Manjrekar, Wealth Strategist — video introduction"
                 loading="lazy"
                 decoding="async"
                 className="absolute inset-0 w-full h-full object-cover object-[75%_20%] sm:object-[center_20%] opacity-90"
@@ -325,7 +325,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <motion.div className="grid md:grid-cols-12 gap-10 md:gap-16 mb-14 md:mb-20" {...fadeUp}>
             <div className="md:col-span-7">
-              <div className="font-mono text-[11px] tracking-[0.3em] text-violet uppercase mb-5">
+              <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-violet uppercase mb-5">
                 What We Do
               </div>
               <h2 className="text-4xl sm:text-5xl md:text-6xl tracking-tighter leading-[1] text-ink">
@@ -352,7 +352,7 @@ export default function Home() {
                 step: '02',
                 title: 'Grow',
                 tagline: 'Compound wealth with intent, not noise.',
-                items: ['Wealth Creation', 'Investing', 'Mutual Funds', 'Equity & ETFs', 'Bonds & FDs', 'PMS', 'NPS'],
+                items: ['Wealth Creation', 'Investing', 'Mutual Funds', 'Equity & ETFs', 'AIFs & SIFs', 'PMS', 'NPS'],
               },
               {
                 icon: Compass,
@@ -408,7 +408,7 @@ export default function Home() {
       <section className="px-5 sm:px-6 md:px-10 py-24 md:py-32 bg-off-white">
         <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-12 md:gap-16">
           <motion.div className="md:col-span-5" {...fadeUp}>
-            <div className="font-mono text-[11px] tracking-[0.3em] text-violet uppercase mb-5">
+            <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-violet uppercase mb-5">
               The Real Problem
             </div>
             <h2 className="text-4xl sm:text-5xl md:text-6xl tracking-tighter leading-[1] text-ink">
@@ -448,7 +448,7 @@ export default function Home() {
           </motion.div>
 
           <motion.div className="md:col-span-7" {...fadeUp}>
-            <div className="font-mono text-[11px] tracking-[0.3em] text-violet uppercase mb-5">
+            <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-violet uppercase mb-5">
               About Suman
             </div>
             <h2 className="text-4xl sm:text-5xl md:text-6xl tracking-tighter leading-[1] mb-8">
@@ -460,7 +460,7 @@ export default function Home() {
                 make their wealth grow at the same pace. That is where I step in.
               </p>
               <p>
-                I work as your <span className="text-ink">Wealth Coach</span>,
+                I work as your <span className="text-ink">Wealth Strategist</span>,
                 tracking inflows, optimising allocations, and architecting bulletproof systems
                 that protect, multiply and outlive you.
               </p>
@@ -502,7 +502,7 @@ export default function Home() {
       <section className="px-5 sm:px-6 md:px-10 py-24 md:py-32">
         <div className="max-w-7xl mx-auto">
           <motion.div className="max-w-3xl mb-14 md:mb-20" {...fadeUp}>
-            <div className="font-mono text-[11px] tracking-[0.3em] text-violet uppercase mb-5">
+            <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-violet uppercase mb-5">
               Books & eBooks
             </div>
             <h2 className="text-4xl sm:text-5xl md:text-6xl tracking-tighter leading-[1]">
@@ -572,7 +572,7 @@ export default function Home() {
       <section className="bg-off-white px-5 sm:px-6 md:px-10 py-20 md:py-28">
         <div className="max-w-7xl mx-auto">
           <motion.div className="max-w-3xl mb-16 md:mb-20" {...fadeUp}>
-            <div className="font-mono text-[11px] tracking-[0.3em] text-violet uppercase mb-5">
+            <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-violet uppercase mb-5">
               Client Stories
             </div>
             <h2 className="text-4xl sm:text-5xl md:text-6xl tracking-tighter leading-[1]">
@@ -631,7 +631,7 @@ export default function Home() {
       <section className="px-5 sm:px-6 md:px-10 py-20 md:py-28">
         <div className="max-w-4xl mx-auto">
           <motion.div className="text-center mb-14" {...fadeUp}>
-            <div className="font-mono text-[11px] tracking-[0.3em] text-violet uppercase mb-5">
+            <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-violet uppercase mb-5">
               FAQ
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl tracking-tighter leading-[1.05]">
@@ -655,7 +655,7 @@ export default function Home() {
           <div aria-hidden className="absolute -top-32 -right-24 w-[28rem] h-[28rem] rounded-full bg-violet-deep blur-3xl opacity-40" />
           <div aria-hidden className="absolute -bottom-32 -left-24 w-[24rem] h-[24rem] rounded-full bg-white/10 blur-3xl" />
           <div className="relative max-w-3xl mx-auto">
-            <div className="font-mono text-[11px] tracking-[0.3em] text-white/70 uppercase mb-6 flex items-center justify-center gap-3">
+            <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-white/70 uppercase mb-6 flex items-center justify-center gap-3">
               <span className="w-10 h-px bg-white/40" />
               Your Next Move
               <span className="w-10 h-px bg-white/40" />
@@ -798,7 +798,7 @@ function AboutCarousel() {
                 {isNear ? (
                   <img
                     src={src}
-                    alt={`Suman Manjrekar, Wealth Coach — portrait ${displayIndex + 1} of ${total}`}
+                    alt={`Suman Manjrekar, Wealth Strategist — portrait ${displayIndex + 1} of ${total}`}
                     draggable={false}
                     decoding="async"
                     loading={i === 1 ? 'eager' : 'lazy'}

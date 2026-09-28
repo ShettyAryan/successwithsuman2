@@ -53,7 +53,7 @@ const credentials = [
   { icon: Mic, label: 'Top 100', sub: 'Speakers of India' },
   { icon: BookOpen, label: 'Bestselling', sub: 'Author, Amazon' },
   { icon: Trophy, label: '19+ years', sub: 'In the field' },
-  { icon: Star, label: '4.4★', sub: 'Trustpilot rating' },
+  { icon: Star, label: '4.8★', sub: 'Trustpilot rating' },
 ];
 
 const values = [
@@ -100,8 +100,8 @@ export default function About() {
   return (
     <div className="bg-white overflow-x-hidden">
       <Seo
-        title="About Suman Manjrekar | Wealth Coach & Author"
-        description="Meet Suman Manjrekar: IRDA & AMFI certified wealth coach, Amazon bestselling author of 'I Will Never Die', and creator of the MMH wealth framework."
+        title="About Suman Manjrekar | Wealth Strategist & Author"
+        description="Meet Suman Manjrekar: IRDA & AMFI certified wealth strategist, Amazon bestselling author of 'I Will Never Die', and creator of the MMH wealth framework."
         path="/about"
         jsonLd={aboutJsonLd}
       />
@@ -112,7 +112,7 @@ export default function About() {
         {/* Mobile: header clearance + subject crop. Desktop: previous scaled framing preserved */}
         <img
           src={heroPortrait}
-          alt="Suman Manjrekar, Wealth Coach and author"
+          alt="Suman Manjrekar, Wealth Strategist and author"
           fetchPriority="high"
           decoding="async"
           className="absolute left-0 right-0 bottom-0 top-16 w-full object-cover object-[80%_18%] sm:inset-0 sm:top-0 sm:object-[65%_35%] sm:scale-[1.25] sm:origin-[65%_38%]"
@@ -131,7 +131,7 @@ export default function About() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] sm:tracking-[0.3em] uppercase flex items-center gap-3"
+            className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] uppercase flex items-center gap-3"
             style={{ color: '#FFFFFF' }}
           >
             <span className="w-8 sm:w-10 h-px" style={{ background: 'rgba(255,255,255,0.7)' }} />
@@ -146,7 +146,7 @@ export default function About() {
               className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tighter leading-[1.05] sm:leading-[1]"
               style={{ color: '#0F0B2E' }}
             >
-              Wealth Coach.<br />
+              Wealth Strategist.<br />
               Speaker.<br />
               <span style={{ color: '#770a7d' }} className="italic">Author.</span>
             </motion.h1>
@@ -184,7 +184,7 @@ export default function About() {
       <section className="px-5 sm:px-6 md:px-10 py-16 md:py-24 bg-off-white">
         <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-14">
           <motion.div className="md:col-span-5" {...fadeUp}>
-            <div className="font-mono text-xs tracking-widest text-violet uppercase mb-4">My Story</div>
+            <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-violet uppercase mb-4">My Story</div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl tracking-tighter leading-tight">
               Why I do this work.
             </h2>
@@ -203,7 +203,7 @@ export default function About() {
               That is when MMH was born. <span className="text-violet">Money Management for the architecture, Mindset for the operating system, Healing for the wounds underneath.</span> Three pillars, working at once.
             </p>
             <p>
-              Today I work as a Wealth Coach to high-income professionals, doctors and founders, with
+              Today I work as a Wealth Strategist to high-income professionals, doctors and founders, with
               the same belief I started with: making money is the easy part. Keeping it, growing it, protecting it,
               that is where freedom lives.
             </p>
@@ -215,7 +215,7 @@ export default function About() {
       <section className="py-16 md:py-24 overflow-hidden">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-10 mb-10 md:mb-14">
           <motion.div className="max-w-2xl" {...fadeUp}>
-            <div className="font-mono text-xs tracking-widest text-violet uppercase mb-4">In The Room</div>
+            <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-violet uppercase mb-4">In The Room</div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl tracking-tighter leading-tight">
               Moments from the <span className="text-violet">work.</span>
             </h2>
@@ -228,7 +228,7 @@ export default function About() {
       <section className="px-5 sm:px-6 md:px-10 py-16 md:py-24">
         <div className="max-w-7xl mx-auto">
           <motion.div className="mb-10 md:mb-14 max-w-2xl" {...fadeUp}>
-            <div className="font-mono text-xs tracking-widest text-violet uppercase mb-4">Credentials</div>
+            <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-violet uppercase mb-4">Credentials</div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl tracking-tighter leading-tight">
               The receipts <span className="text-violet">behind the work</span>.
             </h2>
@@ -261,7 +261,7 @@ export default function About() {
       <section className="px-5 sm:px-6 md:px-10 py-16 md:py-24 bg-off-white">
         <div className="max-w-7xl mx-auto">
           <motion.div className="mb-10 md:mb-14 max-w-2xl" {...fadeUp}>
-            <div className="font-mono text-xs tracking-widest text-violet uppercase mb-4">The Journey</div>
+            <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-violet uppercase mb-4">The Journey</div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl tracking-tighter leading-tight">
               Two decades, in <span className="text-violet">six chapters</span>.
             </h2>
@@ -297,7 +297,7 @@ export default function About() {
       <section className="px-5 sm:px-6 md:px-10 py-16 md:py-24">
         <div className="max-w-7xl mx-auto">
           <motion.div className="mb-10 md:mb-14 max-w-2xl" {...fadeUp}>
-            <div className="font-mono text-xs tracking-widest text-violet uppercase mb-4">What I Stand For</div>
+            <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-violet uppercase mb-4">What I Stand For</div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl tracking-tighter leading-tight">
               Four lines I will <span className="text-violet">not cross</span>.
             </h2>
@@ -328,7 +328,7 @@ export default function About() {
             { to: 2095, suffix: '+', separator: true, l: 'Professionals guided' },
             { to: 19, suffix: '+', l: 'Years of experience' },
             { to: 7000, suffix: '+', separator: true, l: 'Hours of training' },
-            { to: 4.4, decimals: 1, suffix: '★', l: 'Trustpilot rating' },
+            { to: 4.8, decimals: 1, suffix: '★', l: 'Trustpilot rating' },
           ].map((s, i) => (
             <motion.div
               key={s.l}
@@ -356,7 +356,7 @@ export default function About() {
       <section className="px-5 sm:px-6 md:px-10 py-16 md:py-24 bg-off-white">
         <div className="max-w-4xl mx-auto">
           <motion.div className="mb-10 md:mb-14 max-w-2xl" {...fadeUp}>
-            <div className="font-mono text-xs tracking-widest text-violet uppercase mb-4">FAQ</div>
+            <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-violet uppercase mb-4">FAQ</div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl tracking-tighter leading-tight">
               Questions, answered.
             </h2>
@@ -375,7 +375,7 @@ export default function About() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.18),transparent_60%)]" />
           <div className="relative">
             <h2 className="text-3xl sm:text-4xl md:text-6xl tracking-tighter leading-[1.05] max-w-3xl mx-auto text-white">
-              Want me as your Wealth Coach?
+              Want me as your Wealth Strategist?
             </h2>
             <p className="mt-6 text-base md:text-lg text-white/85 max-w-xl mx-auto">
               Book a private strategy call. Walk away with clarity, whether or not we work together.

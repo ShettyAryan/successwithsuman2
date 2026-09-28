@@ -82,7 +82,7 @@ export default function Contact() {
         {/* Mobile: header clearance + subject crop. Desktop: previous framing preserved */}
         <img
           src={heroPortrait}
-          alt="Suman Manjrekar, Wealth Coach — contact and strategy call booking"
+          alt="Suman Manjrekar, Wealth Strategist — contact and strategy call booking"
           fetchPriority="high"
           decoding="async"
           className="absolute left-0 right-0 bottom-0 top-16 w-full object-cover object-[82%_16%] sm:top-0 sm:bottom-auto sm:h-[118%] sm:object-[72%_28%] sm:-translate-y-[10%]"
@@ -101,7 +101,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] sm:tracking-[0.3em] uppercase flex items-center gap-3"
+            className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] uppercase flex items-center gap-3"
             style={{ color: '#0F0B2E' }}
           >
             <span className="w-8 sm:w-10 h-px" style={{ background: 'rgba(15,11,46,0.5)' }} />
@@ -170,7 +170,7 @@ export default function Contact() {
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="font-mono text-xs tracking-widest text-violet uppercase mb-2">Strategy Call Request</div>
+                <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-violet uppercase mb-2">Strategy Call Request</div>
                 <h2 className="text-2xl sm:text-3xl tracking-tighter mb-6">A few details to get us started.</h2>
 
                 <div className="grid sm:grid-cols-2 gap-5">
@@ -247,7 +247,7 @@ export default function Contact() {
           </motion.div>
 
           <motion.div className="md:col-span-5 space-y-4" {...fadeUp}>
-            <h2 className="font-mono text-xs tracking-widest text-violet uppercase mb-1">Contact Information</h2>
+            <h2 className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-violet uppercase mb-1">Contact Information</h2>
             {contactItems.map(({ icon: Icon, label, value, href }, i) => (
               <motion.a
                 key={label}
@@ -272,7 +272,7 @@ export default function Contact() {
             ))}
 
             <div className="p-6 rounded-2xl bg-ink text-white">
-              <div className="font-mono text-xs tracking-widest text-violet-soft uppercase mb-3">Stay Connected</div>
+              <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-violet-soft uppercase mb-3">Stay Connected</div>
               <p className="text-white/70 text-sm leading-relaxed mb-5">
                 Follow along for short, free insights on protection, planning and the MMH Formula.
               </p>
@@ -293,7 +293,7 @@ export default function Contact() {
       <section className="px-5 sm:px-6 md:px-10 pb-20 md:pb-28">
         <div className="max-w-4xl mx-auto">
           <motion.div className="mb-10 md:mb-14" {...fadeUp}>
-            <div className="font-mono text-xs tracking-widest text-violet uppercase mb-4">FAQ</div>
+            <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-violet uppercase mb-4">FAQ</div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl tracking-tighter leading-tight">
               Questions, answered.
             </h2>

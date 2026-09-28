@@ -70,7 +70,7 @@ const otherServices = [
 const offerings = [
   { icon: Heart, label: 'Insurance', sub: 'Life · Health · Travel · more' },
   { icon: Banknote, label: 'Mutual Funds', sub: 'Equity · Debt · Hybrid' },
-  { icon: Coins, label: 'Bonds & FDs', sub: 'Stable income instruments' },
+  { icon: Coins, label: 'AIFs & SIFs', sub: 'Stable income instruments' },
   { icon: PieChart, label: 'PMS', sub: 'Portfolio Management Services' },
   { icon: CreditCard, label: 'Loan Against Security', sub: 'Liquidity without exit' },
   { icon: Landmark, label: 'NPS', sub: 'National Pension Scheme' },
@@ -97,7 +97,7 @@ const servicesFaqs = [
   },
   {
     q: 'Who is this for?',
-    a: 'Working professionals and doctors seeking a complete, coordinated plan rather than fragmented, one-off purchases.',
+    a: 'Young Professionals, Young Parents, Working professionals and doctors seeking a complete, coordinated plan rather than fragmented, one-off purchases.',
   },
 ];
 
@@ -133,7 +133,7 @@ export default function Services() {
     <div className="bg-white overflow-x-hidden">
       <Seo
         title="Wealth, Insurance & Retirement Services | Suman Manjrekar"
-        description="Insurance, mutual funds, retirement and legacy planning services from Suman Manjrekar, Wealth Coach to high-income professionals and doctors in India."
+        description="Insurance, mutual funds, retirement and legacy planning services from Suman Manjrekar, Wealth Strategist to high-income professionals and doctors in India."
         path="/services"
         jsonLd={servicesJsonLd}
       />
@@ -144,7 +144,7 @@ export default function Services() {
         {/* Anchored below fixed header + object-top so her head isn't cropped */}
         <img
           src={heroPortrait}
-          alt="Suman Manjrekar, Wealth Coach — insurance, investment and retirement services"
+          alt="Suman Manjrekar, Wealth Strategist — insurance, investment and retirement services"
           fetchPriority="high"
           decoding="async"
           className="absolute left-0 right-0 bottom-0 top-16 md:top-[4.5rem] w-full object-cover object-[80%_12%] sm:object-[72%_10%]"
@@ -163,7 +163,7 @@ export default function Services() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="font-mono text-[10px] sm:text-[11px] tracking-[0.25em] sm:tracking-[0.3em] uppercase flex items-center gap-3"
+            className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] uppercase flex items-center gap-3"
             style={{ color: '#0F0B2E' }}
           >
             <span className="w-8 sm:w-10 h-px" style={{ background: 'rgba(15,11,46,0.5)' }} />
@@ -189,7 +189,7 @@ export default function Services() {
               className="mt-6 sm:mt-10 text-sm sm:text-base md:text-xl leading-relaxed max-w-2xl"
               style={{ color: '#4A4566' }}
             >
-              A complete wealth coaching offering, from protection to wealth creation, structured around your
+              A complete wealth strategy offering, from protection to wealth creation, structured around your
               life stage and long-term goals.
             </motion.p>
             <motion.div
@@ -214,7 +214,7 @@ export default function Services() {
       <section className="px-5 sm:px-6 md:px-10 py-20 md:py-28">
         <div className="max-w-7xl mx-auto">
           <motion.div className="max-w-3xl mb-14 md:mb-20" {...fadeUp}>
-            <div className="font-mono text-[11px] tracking-[0.3em] text-violet uppercase mb-5">
+            <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-violet uppercase mb-5">
               What We Do
             </div>
             <h2 className="text-3xl sm:text-5xl md:text-6xl tracking-tighter leading-[1.05] sm:leading-[1] text-ink">
@@ -249,7 +249,7 @@ export default function Services() {
       <section className="px-5 sm:px-6 md:px-10 py-20 md:py-28 bg-off-white">
         <div className="max-w-7xl mx-auto">
           <motion.div className="max-w-3xl mb-14 md:mb-20" {...fadeUp}>
-            <div className="font-mono text-[11px] tracking-[0.3em] text-violet uppercase mb-5">
+            <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-violet uppercase mb-5">
               Other Services
             </div>
             <h2 className="text-4xl sm:text-5xl md:text-6xl tracking-tighter leading-[1] text-ink">
@@ -283,7 +283,7 @@ export default function Services() {
         <div className="max-w-7xl mx-auto">
           <motion.div className="grid md:grid-cols-12 gap-10 md:gap-16 mb-14 md:mb-20" {...fadeUp}>
             <div className="md:col-span-7">
-              <div className="font-mono text-[11px] tracking-[0.3em] text-violet uppercase mb-5">
+              <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-violet uppercase mb-5">
                 Services We Offer
               </div>
               <h2 className="text-4xl sm:text-5xl md:text-6xl tracking-tighter leading-[1] text-ink">
@@ -323,7 +323,7 @@ export default function Services() {
       <section className="px-5 sm:px-6 md:px-10 py-20 md:py-28 bg-off-white">
         <div className="max-w-4xl mx-auto">
           <motion.div className="max-w-3xl mb-14 md:mb-20" {...fadeUp}>
-            <div className="font-mono text-[11px] tracking-[0.3em] text-violet uppercase mb-5">
+            <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-violet uppercase mb-5">
               FAQ
             </div>
             <h2 className="text-3xl sm:text-5xl md:text-6xl tracking-tighter leading-[1.05] sm:leading-[1] text-ink">
@@ -346,7 +346,7 @@ export default function Services() {
           <div aria-hidden className="absolute -top-32 -right-24 w-[28rem] h-[28rem] rounded-full bg-violet-deep blur-3xl opacity-40" />
           <div aria-hidden className="absolute -bottom-32 -left-24 w-[24rem] h-[24rem] rounded-full bg-white/10 blur-3xl" />
           <div className="relative max-w-3xl mx-auto">
-            <div className="font-mono text-[11px] tracking-[0.3em] text-white/70 uppercase mb-6 flex items-center justify-center gap-3">
+            <div className="font-mono text-[13px] sm:text-[15px] font-medium tracking-[0.2em] sm:tracking-[0.25em] text-white/70 uppercase mb-6 flex items-center justify-center gap-3">
               <span className="w-10 h-px bg-white/40" />
               Ready when you are
               <span className="w-10 h-px bg-white/40" />
